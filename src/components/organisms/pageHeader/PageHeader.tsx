@@ -15,16 +15,20 @@ const getBreadcrumbsItems = (pathname: string): BreadcrumbItem[] => {
   return items.map((item) => ({ text: getRouteItemLabel(item), to: getRoute(item) }));
 };
 
+const getHeaderTitle = (pathname: string): string => {
+  const targetRouteItem = pathname.split('/').at(-1);
+
+  return getRouteItemLabel(targetRouteItem ?? '');
+};
+
 const PageHeader: React.FC = () => {
   const { pathname } = useLocation();
-
-  getBreadcrumbsItems(pathname);
 
   return (
     <PageHeaderSpace $padding="16px 24px" $direction="vertical" $gap={8}>
       <Breadcrumb items={getBreadcrumbsItems(pathname)} />
       <TitleSpace $alignItems="center">
-        <Typography.Title level={3}>Личный кабинет</Typography.Title>
+        <Typography.Title level={3}>{getHeaderTitle(pathname)}</Typography.Title>
       </TitleSpace>
     </PageHeaderSpace>
   );

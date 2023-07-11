@@ -10,6 +10,7 @@ import Sidebar from 'components/organisms/sidebar/Sidebar';
 import AppHeader from 'components/organisms/appHeader/AppHeader';
 import PageContent from 'components/organisms/pageContentWrapper/PageContentWrapper';
 
+import ProfilePage from 'pages/profile/ProfilePageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
 import { getRoute } from 'utils/routes/getRoute';
@@ -25,7 +26,7 @@ const App: React.FC = () => (
         <PageContent>
           <Routes>
             <Route path={getRoute(RouteItem.BASE)} element={<h1>Главная</h1>} />
-            <Route path={getRoute(RouteItem.PROFILE)} element={<h1>Профиль</h1>} />
+            <Route path={getRoute(RouteItem.PROFILE)} element={<ProfilePage />} />
 
             <Route path={getRoute(RouteItem.VACATIONS)} element={<h1>Отпуска</h1>} />
             <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<h1>Мед. осмотр</h1>} />

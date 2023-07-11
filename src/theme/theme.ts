@@ -32,6 +32,8 @@ export const getTokensForStyledComponents = (
   colorBgLight: colors.COLOR_BG_LIGHT,
   colorBgHighlight: colors.COLOR_BG_HIGHLIGHT,
 
+  colorBgHighlightCell: colors.COLOR_BG_HIGHLIGHT_CELL,
+
   shadowXL: '0 0 0 1px rgba(0, 0, 0, 0.05)',
   shadowSM: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
   shadowBase: '0 1px 3px 0 rgba(0, 0, 0, 0.1),0 1px 2px 0 rgba(0, 0, 0, 0.06)',

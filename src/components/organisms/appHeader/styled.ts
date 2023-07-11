@@ -2,8 +2,6 @@ import { appHeaderHeight } from 'constants/appHeaderHeight';
 
 import styled from 'styled-components';
 
-import imagePlaceholder from 'assets/imagePlaceholder.png';
-
 import Space from 'components/atoms/space/Space';
 
 export const PageHeaderSpace = styled(Space)`
@@ -11,11 +9,16 @@ export const PageHeaderSpace = styled(Space)`
   width: 100%;
 `;
 
-export const Avatar = styled.div`
+export const AvatarWrapper = styled.div`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-image: url(${imagePlaceholder});
-  background-position: center;
-  background-size: cover;
+  overflow: hidden;
+`;
+
+export const Avatar = styled.img`
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
 `;

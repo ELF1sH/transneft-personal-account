@@ -8,7 +8,7 @@ export const routeSectionsLabels: Record<RouteSection, string> = {
 
 export const routeItemsLabels: Record<RouteItem, string> = {
   [RouteItem.BASE]: 'Главная',
-  [RouteItem.PROFILE]: 'Профиль',
+  [RouteItem.PROFILE]: 'Личный кабинет',
 
   [RouteItem.VACATIONS]: 'Отпуска',
   [RouteItem.MEDICAL_CHECKUP]: 'Медицинский осмотр и психиатрическое освидетельствование',

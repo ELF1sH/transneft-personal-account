@@ -4,6 +4,8 @@ const COLOR_BG_PRIMARY = '#D8EAFF';
 const COLOR_BG_LIGHT = '#ECF5FF';
 const COLOR_BG_HIGHLIGHT = '#BBDBFF';
 
+const COLOR_BG_HIGHLIGHT_CELL = '#FAFAFA';
+
 const grayPalette = {
   'gray-1': '#ffffff',
   'gray-2': '#fafafa',
@@ -26,6 +28,8 @@ export const colors = {
   COLOR_BG_PRIMARY,
   COLOR_BG_LIGHT,
   COLOR_BG_HIGHLIGHT,
+
+  COLOR_BG_HIGHLIGHT_CELL,
 
   grayPalette,
 };

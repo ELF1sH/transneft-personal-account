@@ -31,6 +31,8 @@ interface CustomColors {
   colorBgPrimary: string;
   colorBgLight: string;
   colorBgHighlight: string;
+
+  colorBgHighlightCell: string;
 }
 
 interface BoxShadows {

@@ -9,7 +9,9 @@ import { IChildren } from 'utils/interfaces/helpers';
 const PageContent: React.FC<IChildren> = ({ children }) => (
   <PageContentWrapper>
     <PageBackground />
-    {children}
+    <Content>
+      {children}
+    </Content>
   </PageContentWrapper>
 );
 
@@ -34,6 +36,11 @@ const PageBackground = styled.div`
   position: fixed;
   right: 0;
   bottom: 0;
+`;
+
+const Content = styled.div`
+  position: relative;
+  z-index: 1;
 `;
 
 export default PageContent;
