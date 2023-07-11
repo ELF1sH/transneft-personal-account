@@ -5,6 +5,8 @@ import 'index.css';
 import 'antd/dist/reset.css';
 import ThemeProviderAnt from 'theme/ThemeProviderAnt';
 import ThemeProviderStyledComponents from 'theme/ThemeProviderStyledComponents';
+import { BrowserRouter } from 'react-router-dom';
+import { StyleSheetManager } from 'styled-components';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -13,7 +15,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <ThemeProviderAnt>
     <ThemeProviderStyledComponents>
-      <App />
+      <StyleSheetManager shouldForwardProp={(name) => !name.startsWith('$')}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </StyleSheetManager>
     </ThemeProviderStyledComponents>
   </ThemeProviderAnt>,
 );

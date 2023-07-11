@@ -4,12 +4,12 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 
 import pageBackground from 'assets/pageBackground.svg';
 
-import { IChildren } from 'utils/interfaces';
+import { IChildren } from 'utils/interfaces/helpers';
 
 const PageContent: React.FC<IChildren> = ({ children }) => (
   <PageContentWrapper>
-    {children}
     <PageBackground />
+    {children}
   </PageContentWrapper>
 );
 
