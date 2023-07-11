@@ -6,11 +6,19 @@ import { colors } from 'theme/colors';
 
 const { defaultAlgorithm } = theme;
 
-export const getThemeConfig = (): ThemeConfig => ({
+export const getThemeConfig = (tokens: GlobalToken): ThemeConfig => ({
   algorithm: defaultAlgorithm,
   token: {
     fontSize: 16,
     colorText: colors.COLOR_TEXT,
+    colorTextHeading: colors.COLOR_TEXT,
+  },
+  components: {
+    Menu: {
+      colorBgContainer: colors.COLOR_BG_PRIMARY,
+      colorBgTextHover: colors.COLOR_BG_HIGHLIGHT,
+      controlItemBgActive: colors.COLOR_BG_HIGHLIGHT,
+    },
   },
 } as ThemeConfig);
 
@@ -19,6 +27,10 @@ export const getTokensForStyledComponents = (
 ): DefaultTheme => ({
   ...tokens,
   ...colors.grayPalette,
+
+  colorBgPrimary: colors.COLOR_BG_PRIMARY,
+  colorBgLight: colors.COLOR_BG_LIGHT,
+  colorBgHighlight: colors.COLOR_BG_HIGHLIGHT,
 
   shadowXL: '0 0 0 1px rgba(0, 0, 0, 0.05)',
   shadowSM: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',

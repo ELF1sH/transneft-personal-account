@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle<ThemeProps<DefaultTheme>>`
   }
   .ant-menu-sub {
     >.ant-menu-item {
-      padding-left: 35px !important;
+      padding-left: 32px !important;
     }
   }
 `;

@@ -28,7 +28,9 @@ interface DefaultColors {
 }
 
 interface CustomColors {
-
+  colorBgPrimary: string;
+  colorBgLight: string;
+  colorBgHighlight: string;
 }
 
 interface BoxShadows {
