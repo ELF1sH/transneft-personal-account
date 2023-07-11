@@ -8,12 +8,17 @@ import { useLocation } from 'react-router-dom';
 
 import { items } from 'components/organisms/sidebar/items';
 
+import { useWindowWidth } from 'utils/hooks/useWindowWidth';
 import { getRouteItemByRoute } from 'utils/routes/getRouteItemByRoute';
 
 const Sidebar: React.FC = () => {
   const { pathname } = useLocation();
 
   const selectedRouteItem = getRouteItemByRoute(pathname);
+
+  const { windowWidth } = useWindowWidth();
+
+  if (windowWidth < 1000) return null;
 
   return (
     <Sider width={220}>
