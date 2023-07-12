@@ -5,6 +5,7 @@ import { Typography } from 'antd';
 import { Spin as Hamburger } from 'hamburger-react';
 import { colors } from 'theme/colors';
 import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
 import logo from 'assets/logo.svg';
 
@@ -12,8 +13,10 @@ import { useDrawerSidebarViewModel } from 'components/organisms/sidebar/drawerSi
 import { Avatar, AvatarWrapper, PageHeaderSpace } from 'components/organisms/appHeader/styled';
 import Space from 'components/atoms/space/Space';
 
+import { getRoute } from 'utils/routes/getRoute';
 import { useAppHeaderHeight } from 'utils/hooks/useAppHeaderHeight';
 import { useWindowWidth } from 'utils/hooks/useWindowWidth';
+import { RouteItem } from 'utils/interfaces/routes';
 
 const AppHeader: React.FC = () => {
   const { windowWidth } = useWindowWidth();
@@ -30,7 +33,7 @@ const AppHeader: React.FC = () => {
       $padding="0 16px"
       $height={appHeaderHeight}
     >
-      <Space $gap={10} style={{ zIndex: 1001, position: 'relative' }}>
+      <Space $gap={10} $alignItems="center" style={{ zIndex: 1001, position: 'relative' }}>
         {
           windowWidth < DRAWER_MAX_WINDOW_WIDTH && (
             <Hamburger
@@ -40,7 +43,9 @@ const AppHeader: React.FC = () => {
             />
           )
         }
-        <img src={logo} alt="logo" draggable={false} />
+        <Link to={getRoute(RouteItem.PROFILE)}>
+          <img src={logo} alt="logo" draggable={false} />
+        </Link>
       </Space>
       <Space $gap={8} $fitContent style={{ flexShrink: 0 }}>
         <AvatarWrapper>

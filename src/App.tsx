@@ -8,8 +8,9 @@ import Space from 'components/atoms/space/Space';
 import PageHeader from 'components/organisms/pageHeader/PageHeader';
 import Sidebar from 'components/organisms/sidebar/Sidebar';
 import AppHeader from 'components/organisms/appHeader/AppHeader';
-import PageContent from 'components/organisms/pageContentWrapper/PageContentWrapper';
+import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapper';
 
+import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import ProfilePage from 'pages/profile/ProfilePageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
@@ -33,7 +34,7 @@ const App: React.FC = () => {
               <Route path={getRoute(RouteItem.BASE)} element={<h1>Главная</h1>} />
               <Route path={getRoute(RouteItem.PROFILE)} element={<ProfilePage />} />
 
-              <Route path={getRoute(RouteItem.VACATIONS)} element={<h1>Отпуска</h1>} />
+              <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageProvider />} />
               <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<h1>Мед. осмотр</h1>} />
               <Route path={getRoute(RouteItem.EDUCATION)} element={<h1>Образование</h1>} />
 

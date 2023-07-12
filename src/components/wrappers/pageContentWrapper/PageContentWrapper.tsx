@@ -23,7 +23,7 @@ const PageContentWrapper = styled.div<ThemeProps<DefaultTheme>>`
     flex-grow: 1;
     
     @media (max-width: 700px) {
-      padding: 10px 12px;
+      padding: 5px 6px;
     }
   `};
 `;
