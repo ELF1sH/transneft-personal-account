@@ -20,6 +20,11 @@ const PageContentWrapper = styled.div<ThemeProps<DefaultTheme>>`
     background-color: ${theme.colorBgLight};
     height: 100%;
     padding: 20px 24px;
+    flex-grow: 1;
+    
+    @media (max-width: 700px) {
+      padding: 10px 12px;
+    }
   `};
 `;
 

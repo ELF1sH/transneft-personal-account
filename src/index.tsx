@@ -8,6 +8,8 @@ import ThemeProviderStyledComponents from 'theme/ThemeProviderStyledComponents';
 import { BrowserRouter } from 'react-router-dom';
 import { StyleSheetManager } from 'styled-components';
 
+import DrawerSidebarProvider from 'components/organisms/sidebar/drawerSidebar/viewModel/provider';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
@@ -17,7 +19,9 @@ root.render(
     <ThemeProviderStyledComponents>
       <StyleSheetManager shouldForwardProp={(name) => !name.startsWith('$')}>
         <BrowserRouter>
-          <App />
+          <DrawerSidebarProvider>
+            <App />
+          </DrawerSidebarProvider>
         </BrowserRouter>
       </StyleSheetManager>
     </ThemeProviderStyledComponents>

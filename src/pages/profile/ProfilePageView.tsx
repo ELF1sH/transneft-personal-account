@@ -8,6 +8,8 @@ import Debt from 'pages/profile/components/debt/Debt';
 import Avatar from 'pages/profile/components/avatar/Avatar';
 import QrCode from 'pages/profile/components/qrCode/QrCode';
 
+import { useWindowWidth } from 'utils/hooks/useWindowWidth';
+
 const dataSource: IKeyValueDataSource[] = [
   {
     key: '1',
@@ -31,18 +33,25 @@ const dataSource: IKeyValueDataSource[] = [
   },
 ];
 
-const ProfilePageView: React.FC = () => (
-  <Space $gap={24}>
-    <Avatar />
+const ProfilePageView: React.FC = () => {
+  const { windowWidth } = useWindowWidth();
 
-    <Space $direction="vertical" $gap={24} style={{ flexGrow: 1 }}>
-      <KeyValueTable dataSource={dataSource} />
-      <Space $gap={24}>
-        <QrCode />
-        <Debt />
+  const direction = windowWidth > 800 ? 'horizontal' : 'vertical';
+  const gap = windowWidth > 700 ? 24 : 6;
+
+  return (
+    <Space $gap={gap} $direction={direction}>
+      <Avatar />
+
+      <Space $direction="vertical" $gap={gap} style={{ flexGrow: 1 }}>
+        <KeyValueTable dataSource={dataSource} />
+        <Space $gap={gap}>
+          <QrCode />
+          <Debt />
+        </Space>
       </Space>
     </Space>
-  </Space>
-);
+  );
+};
 
 export default ProfilePageView;

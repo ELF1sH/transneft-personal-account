@@ -1,12 +1,16 @@
-import { appHeaderHeight } from 'constants/appHeaderHeight';
-
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Space from 'components/atoms/space/Space';
 
-export const PageHeaderSpace = styled(Space)`
-  height: ${appHeaderHeight}px;
-  width: 100%;
+interface PageHeaderSpaceProps {
+  $height: number;
+}
+
+export const PageHeaderSpace = styled(Space)<PageHeaderSpaceProps>`
+  ${({ $height }) => css`
+    height: ${$height}px;
+    width: 100%;
+  `};
 `;
 
 export const AvatarWrapper = styled.div`

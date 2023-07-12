@@ -14,5 +14,8 @@ export const columns: ColumnsType<any> = [
     dataIndex: 'value',
     key: 'value',
     width: '50%',
+    onCell: () => ({
+      style: { wordBreak: 'break-word' },
+    }),
   },
 ];

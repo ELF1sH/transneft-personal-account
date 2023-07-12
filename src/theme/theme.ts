@@ -12,6 +12,7 @@ export const getThemeConfig = (tokens: GlobalToken): ThemeConfig => ({
     fontSize: 16,
     colorText: colors.COLOR_TEXT,
     colorTextHeading: colors.COLOR_TEXT,
+    colorPrimary: colors.COLOR_PRIMARY,
   },
   components: {
     Menu: {

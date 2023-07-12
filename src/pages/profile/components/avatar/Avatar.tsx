@@ -8,7 +8,7 @@ const Avatar: React.FC = () => (
 );
 
 const ProfilePageAvatarWrapper = styled.div`
-  width: 324px;
+  width: min(100%, 324px);
   height: 486px;
   flex-shrink: 0;
 `;

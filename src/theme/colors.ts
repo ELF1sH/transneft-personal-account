@@ -1,5 +1,7 @@
 const COLOR_TEXT = '#000000D9';
 
+const COLOR_PRIMARY = '#035597';
+
 const COLOR_BG_PRIMARY = '#D8EAFF';
 const COLOR_BG_LIGHT = '#ECF5FF';
 const COLOR_BG_HIGHLIGHT = '#BBDBFF';
@@ -24,6 +26,8 @@ const grayPalette = {
 
 export const colors = {
   COLOR_TEXT,
+
+  COLOR_PRIMARY,
 
   COLOR_BG_PRIMARY,
   COLOR_BG_LIGHT,
