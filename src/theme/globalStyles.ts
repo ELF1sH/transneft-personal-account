@@ -1,7 +1,7 @@
-// @ts-ignore
-import { createGlobalStyle, DefaultTheme, ThemeProps } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import { colors } from 'theme/colors';
 
-export const GlobalStyles = createGlobalStyle<ThemeProps<DefaultTheme>>`
+export const GlobalStyles = createGlobalStyle`
   .ant-menu-title-content {
     white-space: normal !important;
     user-select: none;
@@ -18,5 +18,12 @@ export const GlobalStyles = createGlobalStyle<ThemeProps<DefaultTheme>>`
     >.ant-menu-item {
       padding-left: 32px !important;
     }
+  }
+  
+  .ant-table-thead > tr > th {
+    background-color: ${colors.COLOR_BG_PRIMARY} !important;
+  }
+  .ant-table-tbody > tr:nth-child(2n + 1) {
+    background-color: ${colors.COLOR_BG_FILL_ALTER} !important;
   }
 `;
