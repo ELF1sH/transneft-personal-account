@@ -40,6 +40,7 @@ const VacationsPageView: React.FC = () => {
         bordered
         pagination={pagination}
         rowKey="date"
+        scroll={{ x: 1000 }}
       />
     </PageContentInnerWrapper>
   );

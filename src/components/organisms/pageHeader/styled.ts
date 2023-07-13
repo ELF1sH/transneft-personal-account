@@ -11,5 +11,6 @@ export const PageHeaderSpace = styled(Space)<ThemeProps<DefaultTheme>>`
 `;
 
 export const TitleSpace = styled(Space)`
-  height: 40px;
+  height: fit-content;
+  word-break: break-word;
 `;

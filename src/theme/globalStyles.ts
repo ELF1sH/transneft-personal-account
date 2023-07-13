@@ -19,16 +19,15 @@ export const GlobalStyles = createGlobalStyle<ThemeProps<DefaultTheme>>`
       padding-left: 32px !important;
     }
   }
-
-  .ant-table-thead > tr > th,
-  .ant-table-tbody > tr > td {
-    padding: 1px !important;
-    word-break: break-word;
+  
+  .ant-table-measure-row {
+    display: none;
   }
-  @media (min-width: 768px) {
+
+  @media (max-width: 768px) {
     .ant-table-thead > tr > th,
     .ant-table-tbody > tr > td {
-      padding: 16px !important;
+      padding: 8px !important;
     }
   }
 `;

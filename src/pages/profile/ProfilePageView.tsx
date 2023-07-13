@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { IKeyValueDataSource } from 'components/molecules/keyValueTable/types';
 import KeyValueTable from 'components/molecules/keyValueTable/KeyValueTable';
+import { IKeyValueDataSource } from 'components/molecules/keyValueTable/types';
 import Space from 'components/atoms/space/Space';
 
 import Debt from 'pages/profile/components/debt/Debt';

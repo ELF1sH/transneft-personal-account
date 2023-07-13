@@ -10,6 +10,7 @@ import Sidebar from 'components/organisms/sidebar/Sidebar';
 import AppHeader from 'components/organisms/appHeader/AppHeader';
 import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapper';
 
+import MedicalCheckupPageProvider from 'pages/medicalCheckup/MedicalCheckupPageProvider';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import ProfilePage from 'pages/profile/ProfilePageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
@@ -35,7 +36,10 @@ const App: React.FC = () => {
               <Route path={getRoute(RouteItem.PROFILE)} element={<ProfilePage />} />
 
               <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageProvider />} />
-              <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<h1>Мед. осмотр</h1>} />
+              <Route
+                path={getRoute(RouteItem.MEDICAL_CHECKUP)}
+                element={<MedicalCheckupPageProvider />}
+              />
               <Route path={getRoute(RouteItem.EDUCATION)} element={<h1>Образование</h1>} />
 
               <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<h1>Складской</h1>} />
