@@ -19,15 +19,4 @@ export const GlobalStyles = createGlobalStyle<ThemeProps<DefaultTheme>>`
       padding-left: 32px !important;
     }
   }
-  
-  .ant-table-measure-row {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .ant-table-thead > tr > th,
-    .ant-table-tbody > tr > td {
-      padding: 8px !important;
-    }
-  }
 `;

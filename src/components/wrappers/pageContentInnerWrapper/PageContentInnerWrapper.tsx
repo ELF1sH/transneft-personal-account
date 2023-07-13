@@ -8,6 +8,10 @@ const PageContentInnerWrapper = styled.div`
   @media (max-width: 700px) {
     padding: 5px 6px;
   }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export default PageContentInnerWrapper;

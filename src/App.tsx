@@ -10,6 +10,8 @@ import Sidebar from 'components/organisms/sidebar/Sidebar';
 import AppHeader from 'components/organisms/appHeader/AppHeader';
 import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapper';
 
+import WorkingHoursPage from 'pages/workingHours/WorkingHoursPage';
+import InventoryControlPage from 'pages/inventoryControl/InventoryControlPage';
 import MedicalCheckupPageProvider from 'pages/medicalCheckup/MedicalCheckupPageProvider';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import ProfilePage from 'pages/profile/ProfilePageProvider';
@@ -42,9 +44,12 @@ const App: React.FC = () => {
               />
               <Route path={getRoute(RouteItem.EDUCATION)} element={<h1>Образование</h1>} />
 
-              <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<h1>Складской</h1>} />
+              <Route
+                path={getRoute(RouteItem.INVENTORY_CONTROL)}
+                element={<InventoryControlPage />}
+              />
 
-              <Route path={getRoute(RouteItem.WORKING_HOURS)} element={<h1>Режим работы</h1>} />
+              <Route path={getRoute(RouteItem.WORKING_HOURS)} element={<WorkingHoursPage />} />
               <Route path={getRoute(RouteItem.WORKING_SCHEDULE)} element={<h1>Графикиработ</h1>} />
 
               <Route path={getRoute(RouteItem.REDUCED_FARE)} element={<h1>Льготный проезд</h1>} />
