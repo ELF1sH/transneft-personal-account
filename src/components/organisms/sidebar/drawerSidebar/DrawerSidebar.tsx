@@ -18,8 +18,13 @@ const DrawerSidebar: React.FC = () => {
       open={isOpen}
       headerStyle={{ display: 'none' }}
       bodyStyle={{ padding: '0', background: colors.COLOR_BG_PRIMARY }}
+      width={300}
     >
       <div style={{ paddingTop: `${APP_HEADER_HEIGHT}px` }}>
+        <div style={{
+          height: `${APP_HEADER_HEIGHT}px`, zIndex: 500, background: colors.COLOR_BG_PRIMARY, position: 'fixed', top: 0, left: 0, width: `${300}px`,
+        }}
+        />
         <Sidebar insideDrawer />
       </div>
     </Drawer>

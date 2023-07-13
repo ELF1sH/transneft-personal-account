@@ -4,12 +4,12 @@ import { Route, Routes } from 'react-router-dom';
 import { colors } from 'theme/colors';
 
 import DrawerSidebar from 'components/organisms/sidebar/drawerSidebar/DrawerSidebar';
-import Space from 'components/atoms/space/Space';
 import PageHeader from 'components/organisms/pageHeader/PageHeader';
 import Sidebar from 'components/organisms/sidebar/Sidebar';
 import AppHeader from 'components/organisms/appHeader/AppHeader';
 import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapper';
 
+import EducationPage from 'pages/education/EducationPage';
 import WorkingHoursPage from 'pages/workingHours/WorkingHoursPage';
 import InventoryControlPage from 'pages/inventoryControl/InventoryControlPage';
 import MedicalCheckupPageProvider from 'pages/medicalCheckup/MedicalCheckupPageProvider';
@@ -30,7 +30,7 @@ const App: React.FC = () => {
       <AppHeader />
       <Layout style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)`, background: colors.COLOR_BG_PRIMARY }}>
         <Sidebar />
-        <Space $direction="vertical" style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)` }}>
+        <div style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)`, width: '100%' }}>
           <PageHeader />
           <PageContent>
             <Routes>
@@ -42,7 +42,7 @@ const App: React.FC = () => {
                 path={getRoute(RouteItem.MEDICAL_CHECKUP)}
                 element={<MedicalCheckupPageProvider />}
               />
-              <Route path={getRoute(RouteItem.EDUCATION)} element={<h1>Образование</h1>} />
+              <Route path={getRoute(RouteItem.EDUCATION)} element={<EducationPage />} />
 
               <Route
                 path={getRoute(RouteItem.INVENTORY_CONTROL)}
@@ -67,7 +67,7 @@ const App: React.FC = () => {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </PageContent>
-        </Space>
+        </div>
       </Layout>
     </>
   );

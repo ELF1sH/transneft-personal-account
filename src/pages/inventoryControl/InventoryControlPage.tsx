@@ -1,3 +1,5 @@
+import { pagination } from 'constants/tables/pagination';
+
 import React from 'react';
 import { Table } from 'antd';
 
@@ -6,7 +8,6 @@ import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper
 import { IInventoryControlItem } from 'domain/entities/inventoryControlItem';
 
 import { useColumns } from 'pages/inventoryControl/hooks/useColumns';
-import { pagination } from 'pages/inventoryControl/constants/pagination';
 
 const dataSource: IInventoryControlItem[] = [
   {
@@ -28,7 +29,7 @@ const InventoryControlPage: React.FC = () => {
         bordered
         pagination={pagination}
         rowKey="type"
-        scroll={{ x: 1000 }}
+        scroll={{ x: 'fit-content' }}
       />
     </PageContentInnerWrapper>
   );
