@@ -2,7 +2,7 @@ import React from 'react';
 // @ts-ignore
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 
-import pageBackground from 'assets/pageBackground.svg';
+import { PageBackground } from 'components/atoms/pageBackground/PageBackgrond';
 
 import { IChildren } from 'utils/interfaces/helpers';
 
@@ -25,21 +25,6 @@ const PageContentWrapper = styled.div<ThemeProps<DefaultTheme>>`
       padding: 5px 6px;
     }
   `};
-`;
-
-const PageBackground = styled.div`
-  background-image: url(${pageBackground});
-  background-position: 75px 0;
-  background-repeat: no-repeat;
-  opacity: 0.4;
-
-  display: block;
-  width: 856px;
-  height: 552px;
-
-  position: fixed;
-  right: 0;
-  bottom: 0;
 `;
 
 const Content = styled.div`

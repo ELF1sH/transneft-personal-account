@@ -1,6 +1,6 @@
 const COLOR_TEXT = '#000000D9';
 
-const COLOR_PRIMARY = '#035597';
+const COLOR_PRIMARY = '#1890FF';
 
 const COLOR_BG_PRIMARY = '#D8EAFF';
 const COLOR_BG_LIGHT = '#ECF5FF';
