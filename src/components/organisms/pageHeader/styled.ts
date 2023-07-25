@@ -9,8 +9,3 @@ export const PageHeaderSpace = styled(Space)<ThemeProps<DefaultTheme>>`
     height: fit-content;
   `};
 `;
-
-export const TitleSpace = styled(Space)`
-  height: fit-content;
-  word-break: break-word;
-`;

@@ -11,7 +11,7 @@ const PageHeader: React.FC = () => {
   const { pathname } = useLocation();
 
   return (
-    <PageHeaderSpace $padding="16px 24px" $direction="vertical" $gap={8}>
+    <PageHeaderSpace $padding="16px 24px" $direction="vertical" $gap={8} id="page-header">
       <Breadcrumb items={getBreadcrumbsItems(pathname)} />
       <Typography.Title level={3}>{getHeaderTitle(pathname)}</Typography.Title>
     </PageHeaderSpace>

@@ -8,8 +8,8 @@ import { useLocation } from 'react-router-dom';
 import { useDrawerSidebarViewModel } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
 import { items } from 'components/organisms/sidebar/items';
 
-import { useAppHeaderHeight } from 'utils/hooks/useAppHeaderHeight';
-import { useWindowWidth } from 'utils/hooks/useWindowWidth';
+import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
+import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
 import { getRouteItemByRoute } from 'utils/routes/getRouteItemByRoute';
 
 interface SidebarProps {

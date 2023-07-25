@@ -14,8 +14,8 @@ import { Avatar, AvatarWrapper, PageHeaderSpace } from 'components/organisms/app
 import Space from 'components/atoms/space/Space';
 
 import { getRoute } from 'utils/routes/getRoute';
-import { useAppHeaderHeight } from 'utils/hooks/useAppHeaderHeight';
-import { useWindowWidth } from 'utils/hooks/useWindowWidth';
+import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
+import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
 import { RouteItem } from 'utils/interfaces/routes';
 
 const AppHeader: React.FC = () => {
@@ -47,12 +47,16 @@ const AppHeader: React.FC = () => {
           <img src={logo} alt="logo" draggable={false} />
         </Link>
       </Space>
-      <Space $gap={8} $fitContent style={{ flexShrink: 0 }}>
-        <AvatarWrapper>
-          <Avatar src="https://fakeimg.pl/24x24" />
-        </AvatarWrapper>
-        <Typography.Text>Шевцов Олег Петрович</Typography.Text>
-      </Space>
+
+      <Link to={getRoute(RouteItem.PROFILE)} style={{ flexShrink: 0, textDecoration: 'none' }}>
+        <Space $gap={8} $fitContent>
+          <AvatarWrapper>
+            <Avatar src="https://fakeimg.pl/24x24" />
+          </AvatarWrapper>
+          <Typography.Text>Шевцов Олег Петрович</Typography.Text>
+        </Space>
+      </Link>
+
     </PageHeaderSpace>
   );
 };

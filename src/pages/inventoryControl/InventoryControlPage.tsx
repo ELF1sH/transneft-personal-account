@@ -11,6 +11,7 @@ import { useColumns } from 'pages/inventoryControl/hooks/useColumns';
 
 const dataSource: IInventoryControlItem[] = [
   {
+    id: '1',
     height: 187,
     clothingSize: 48,
     footSize: 43,
@@ -28,7 +29,7 @@ const InventoryControlPage: React.FC = () => {
         dataSource={dataSource}
         bordered
         pagination={pagination}
-        rowKey="type"
+        rowKey="id"
         scroll={{ x: 'fit-content' }}
       />
     </PageContentInnerWrapper>

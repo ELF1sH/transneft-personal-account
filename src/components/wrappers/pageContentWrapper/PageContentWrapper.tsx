@@ -18,7 +18,6 @@ const PageContent: React.FC<IChildren> = ({ children }) => (
 const PageContentWrapper = styled.div<ThemeProps<DefaultTheme>>`
   ${({ theme }) => css`
     background-color: ${theme.colorBgLight};
-    height: 100%;
     padding: 20px 24px;
     flex-grow: 1;
     

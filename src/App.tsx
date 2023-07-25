@@ -1,8 +1,10 @@
+/* eslint max-len: 0 */
 import React from 'react';
 import { Layout } from 'antd';
 import { Route, Routes } from 'react-router-dom';
 import { colors } from 'theme/colors';
 
+import Space from 'components/atoms/space/Space';
 import DrawerSidebar from 'components/organisms/sidebar/drawerSidebar/DrawerSidebar';
 import PageHeader from 'components/organisms/pageHeader/PageHeader';
 import Sidebar from 'components/organisms/sidebar/Sidebar';
@@ -17,7 +19,7 @@ import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import ProfilePage from 'pages/profile/ProfilePageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
-import { useAppHeaderHeight } from 'utils/hooks/useAppHeaderHeight';
+import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
 import { getRoute } from 'utils/routes/getRoute';
 import { RouteItem } from 'utils/interfaces/routes';
 
@@ -30,7 +32,7 @@ const App: React.FC = () => {
       <AppHeader />
       <Layout style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)`, background: colors.COLOR_BG_PRIMARY }}>
         <Sidebar />
-        <div style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)`, width: '100%' }}>
+        <Space $direction="vertical" style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)` }}>
           <PageHeader />
           <PageContent>
             <Routes>
@@ -38,16 +40,10 @@ const App: React.FC = () => {
               <Route path={getRoute(RouteItem.PROFILE)} element={<ProfilePage />} />
 
               <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageProvider />} />
-              <Route
-                path={getRoute(RouteItem.MEDICAL_CHECKUP)}
-                element={<MedicalCheckupPageProvider />}
-              />
+              <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<MedicalCheckupPageProvider />} />
               <Route path={getRoute(RouteItem.EDUCATION)} element={<EducationPage />} />
 
-              <Route
-                path={getRoute(RouteItem.INVENTORY_CONTROL)}
-                element={<InventoryControlPage />}
-              />
+              <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<InventoryControlPage />} />
 
               <Route path={getRoute(RouteItem.WORKING_HOURS)} element={<WorkingHoursPage />} />
               <Route path={getRoute(RouteItem.WORKING_SCHEDULE)} element={<h1>Графикиработ</h1>} />
@@ -67,7 +63,7 @@ const App: React.FC = () => {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </PageContent>
-        </div>
+        </Space>
       </Layout>
     </>
   );

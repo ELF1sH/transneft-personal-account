@@ -8,7 +8,7 @@ import Debt from 'pages/profile/components/debt/Debt';
 import Avatar from 'pages/profile/components/avatar/Avatar';
 import QrCode from 'pages/profile/components/qrCode/QrCode';
 
-import { useWindowWidth } from 'utils/hooks/useWindowWidth';
+import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
 
 const dataSource: IKeyValueDataSource[] = [
   {
