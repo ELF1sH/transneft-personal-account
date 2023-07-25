@@ -1,15 +1,17 @@
 import { createContext, useContext } from 'react';
 
-import { DrawerSidebarViewModel } from 'components/organisms/sidebar/drawerSidebar/viewModel';
+export interface IDrawerSidebarContext {
+  isOpen: boolean;
+  open: () => void;
+  close: () => void;
+}
 
-export const DrawerSidebarVmContext = createContext<DrawerSidebarViewModel | undefined>(
-  undefined,
-);
+export const DrawerSidebarContext = createContext<IDrawerSidebarContext | undefined>(undefined);
 
-export const useDrawerSidebarViewModel = () => {
-  const vm = useContext(DrawerSidebarVmContext);
+export const useDrawerSidebarContext = () => {
+  const context = useContext(DrawerSidebarContext);
 
-  if (!vm) throw new Error();
+  if (!context) throw new Error();
 
-  return vm;
+  return context;
 };

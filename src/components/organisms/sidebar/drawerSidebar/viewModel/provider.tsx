@@ -1,20 +1,28 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 
-import { DrawerSidebarVmContext } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
-import { DrawerSidebarViewModel } from 'components/organisms/sidebar/drawerSidebar/viewModel';
+import {
+  DrawerSidebarContext,
+  IDrawerSidebarContext,
+} from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
 
 import { IChildren } from 'utils/interfaces/helpers';
 
 const DrawerSidebarProvider: React.FC<IChildren> = ({ children }) => {
-  const vm = useMemo<DrawerSidebarViewModel>(
-    () => new DrawerSidebarViewModel(),
-    [],
+  const [isOpen, setIsOpen] = useState(false);
+
+  const contextValue: IDrawerSidebarContext = useMemo(
+    () => ({
+      isOpen,
+      open: () => setIsOpen(true),
+      close: () => setIsOpen(false),
+    }),
+    [isOpen],
   );
 
   return (
-    <DrawerSidebarVmContext.Provider value={vm}>
+    <DrawerSidebarContext.Provider value={contextValue}>
       {children}
-    </DrawerSidebarVmContext.Provider>
+    </DrawerSidebarContext.Provider>
   );
 };
 

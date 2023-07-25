@@ -4,12 +4,11 @@ import React from 'react';
 import { Typography } from 'antd';
 import { Spin as Hamburger } from 'hamburger-react';
 import { colors } from 'theme/colors';
-import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
 
 import logo from 'assets/logo.svg';
 
-import { useDrawerSidebarViewModel } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
+import { useDrawerSidebarContext } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
 import { Avatar, AvatarWrapper, PageHeaderSpace } from 'components/organisms/appHeader/styled';
 import Space from 'components/atoms/space/Space';
 
@@ -21,7 +20,7 @@ import { RouteItem } from 'utils/interfaces/routes';
 const AppHeader: React.FC = () => {
   const { windowWidth } = useWindowWidth();
   const { appHeaderHeight } = useAppHeaderHeight();
-  const { open, close, isOpen } = useDrawerSidebarViewModel();
+  const { open, close, isOpen } = useDrawerSidebarContext();
 
   const direction = windowWidth < 500 ? 'vertical' : 'horizontal';
 
@@ -61,4 +60,4 @@ const AppHeader: React.FC = () => {
   );
 };
 
-export default observer(AppHeader);
+export default AppHeader;

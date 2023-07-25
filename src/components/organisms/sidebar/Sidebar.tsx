@@ -5,7 +5,9 @@ import Sider from 'antd/es/layout/Sider';
 import { Menu } from 'antd';
 import { useLocation } from 'react-router-dom';
 
-import { useDrawerSidebarViewModel } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
+import {
+  useDrawerSidebarContext,
+} from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
 import { items } from 'components/organisms/sidebar/items';
 
 import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
@@ -18,7 +20,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ insideDrawer = false }) => {
   const { pathname } = useLocation();
-  const { close } = useDrawerSidebarViewModel();
+  const { close } = useDrawerSidebarContext();
 
   const selectedRouteItem = getRouteItemByRoute(pathname);
 

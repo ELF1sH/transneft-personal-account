@@ -1,6 +1,5 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
-import { observer } from 'mobx-react-lite';
 import { getThemeConfig } from 'theme/theme';
 import { useToken } from 'antd/es/theme/internal';
 
@@ -18,4 +17,4 @@ const ThemeProviderAnt: React.FC<ThemeProviderProps> = ({ children }) => {
   );
 };
 
-export default observer(ThemeProviderAnt);
+export default ThemeProviderAnt;

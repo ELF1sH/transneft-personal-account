@@ -2,14 +2,15 @@ import { APP_HEADER_HEIGHT } from 'constants/layout';
 
 import React from 'react';
 import { Drawer } from 'antd';
-import { observer } from 'mobx-react-lite';
 import { colors } from 'theme/colors';
 
 import Sidebar from 'components/organisms/sidebar/Sidebar';
-import { useDrawerSidebarViewModel } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
+import {
+  useDrawerSidebarContext,
+} from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
 
 const DrawerSidebar: React.FC = () => {
-  const { isOpen, close } = useDrawerSidebarViewModel();
+  const { isOpen, close } = useDrawerSidebarContext();
 
   return (
     <Drawer
@@ -31,4 +32,4 @@ const DrawerSidebar: React.FC = () => {
   );
 };
 
-export default observer(DrawerSidebar);
+export default DrawerSidebar;
