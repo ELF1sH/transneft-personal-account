@@ -20,10 +20,10 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
   
-  .ant-table-thead > tr > th {
-    background-color: ${colors.COLOR_BG_PRIMARY} !important;
+  .ant-table-thead > tr > th.ant-table-cell {
+    background-color: ${colors.COLOR_BG_PRIMARY};
   }
-  .ant-table-tbody > tr:nth-child(2n + 1) {
+  .ant-table-tbody .ant-table-row:nth-child(2n + 1) {
     background-color: ${colors.COLOR_BG_FILL_ALTER} !important;
   }
 `;
