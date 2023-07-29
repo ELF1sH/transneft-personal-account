@@ -1,9 +1,9 @@
 export interface IVacation {
+  id: string;
   date: string;
-  main: number;
-  mks: number;
+  generalDays: number;
+  northernDays: number;
   irregularDays: number;
-  totalDays: number;
-  materialAid: boolean;
-  reducedFare: boolean;
+  assistance: boolean;
+  preferentialTravel: boolean;
 }

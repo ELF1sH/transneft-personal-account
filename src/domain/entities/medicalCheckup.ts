@@ -1,5 +1,6 @@
 export interface IMedicalCheckup {
+  id: string;
   type: string;
   date: string;
-  number: string;
+  certificate: string;
 }

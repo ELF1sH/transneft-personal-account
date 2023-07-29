@@ -11,14 +11,16 @@ import { useColumns } from './hooks/useColumns';
 
 const dataSource: IMedicalCheckup[] = [
   {
+    id: '123',
     type: 'Медицинский осмотр',
     date: '06.10.2022',
-    number: '563/29',
+    certificate: '563/29',
   },
   {
+    id: '124',
     type: 'Психиатрическое освидетельствование',
     date: '12.01.2023',
-    number: '418',
+    certificate: '418',
   },
 ];
 
@@ -32,7 +34,7 @@ const MedicalCheckupPageView: React.FC = () => {
         dataSource={dataSource}
         bordered
         pagination={pagination}
-        rowKey="type"
+        rowKey="id"
         scroll={{ x: 'fit-content' }}
       />
     </PageContentInnerWrapper>

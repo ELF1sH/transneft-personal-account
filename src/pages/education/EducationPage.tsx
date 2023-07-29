@@ -11,16 +11,20 @@ import { useColumns } from './hooks/useColumns';
 
 const dataSource: IEducation[] = [
   {
+    id: '112',
     educationCenter: 'Запсиб энерго',
     city: 'Тюмень',
     courseName: 'Охрана труда и промышленная безопасность',
-    educationPeriod: '03.07.2023 - 07.07.2023',
+    startDate: '03.07.2023',
+    endDate: '07.07.2023',
   },
   {
+    id: '113',
     educationCenter: 'ТНПК',
     city: 'Тюмень',
     courseName: 'Огневые и газоопасные работы на объектах ТЭК',
-    educationPeriod: '11.12.2023 - 15.12.2023',
+    startDate: '03.07.2023',
+    endDate: '07.07.2023',
   },
 ];
 
@@ -34,7 +38,7 @@ const EducationPage: React.FC = () => {
         dataSource={dataSource}
         bordered
         pagination={pagination}
-        rowKey="educationCenter"
+        rowKey="id"
         scroll={{ x: 'fit-content' }}
       />
     </PageContentInnerWrapper>

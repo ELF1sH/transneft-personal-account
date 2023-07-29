@@ -18,8 +18,8 @@ import WorkingHoursPage from 'pages/workingHours/WorkingHoursPage';
 import InventoryControlPage from 'pages/inventoryControl/InventoryControlPage';
 import MedicalCheckupPageProvider from 'pages/medicalCheckup/MedicalCheckupPageProvider';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
-import ProfilePage from 'pages/profile/ProfilePageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
+import ProfilePage from 'pages/profile/ProfilePageController';
 
 import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
 import { getRoute } from 'utils/routes/getRoute';
@@ -44,7 +44,6 @@ const App: React.FC = () => {
                   <PageHeader />
                   <PageContent>
                     <Routes>
-
                       <Route path={getRoute(RouteItem.PROFILE)} element={<ProfilePage />} />
 
                       <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageProvider />} />

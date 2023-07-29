@@ -9,8 +9,9 @@ import { AuthPageWrapper, FormWrapper } from './styled';
 import FormPersonnelNumberStep from './components/FormPersonnelNumberStep/FormPersonnelNumberStep';
 import FormPasswordStep from './components/FormPasswordStep/FormPasswordStep';
 import { AuthStep } from './interfaces';
+import FormSetPasswordStep from './components/FormSetPasswordStep/FormSetPasswordStep';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const AuthPage: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<AuthStep>(AuthStep.PERSONNEL_NUMBER);
@@ -23,8 +24,10 @@ const AuthPage: React.FC = () => {
         <Title level={4}>Вход в личный кабинет</Title>
         {
           currentStep === AuthStep.PERSONNEL_NUMBER
-            ? <FormPersonnelNumberStep toNextStep={() => setCurrentStep(AuthStep.PASSWORD)} />
-            : <FormPasswordStep />
+            ? <FormPersonnelNumberStep setCurrentStep={setCurrentStep} />
+            : currentStep === AuthStep.SET_PASSWORD
+              ? <FormSetPasswordStep />
+              : <FormPasswordStep />
         }
       </FormWrapper>
     </AuthPageWrapper>

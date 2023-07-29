@@ -1,6 +1,8 @@
 export interface IEducation {
+  id: string;
   educationCenter: string;
   city: string;
   courseName: string;
-  educationPeriod: string;
+  startDate: string;
+  endDate: string;
 }

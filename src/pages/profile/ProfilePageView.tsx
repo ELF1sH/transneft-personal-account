@@ -1,39 +1,22 @@
 import React from 'react';
-import { Avatar } from 'antd';
 
 import KeyValueTable from 'components/molecules/keyValueTable/KeyValueTable';
-import { IKeyValueDataSource } from 'components/molecules/keyValueTable/types';
 import Space from 'components/atoms/space/Space';
+
+import { IGetProfileResponse } from 'domain/repositories/api/interfaces/IUsersRepository';
 
 import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
 
 import QrCode from './components/qrCode/QrCode';
 import Debt from './components/debt/Debt';
+import Avatar from './components/avatar/Avatar';
+import { getMainTableDataSource } from './helpers/getMainTableDataSource';
 
-const dataSource: IKeyValueDataSource[] = [
-  {
-    key: '1',
-    title: 'Табельный номер',
-    value: '13023478 ',
-  },
-  {
-    key: '2',
-    title: 'ФИО',
-    value: 'Шевцов Олег Петрович',
-  },
-  {
-    key: '3',
-    title: 'Должность',
-    value: 'Инженер-механик 1 категории',
-  },
-  {
-    key: '4',
-    title: 'Подразделение',
-    value: 'Участок механотехнологического оборудования ЛПДС «Нижневартовская» филиал «Нижневартовское УМН»',
-  },
-];
+export interface ProfilePageViewProps {
+  data?: IGetProfileResponse;
+}
 
-const ProfilePageView: React.FC = () => {
+const ProfilePageView: React.FC<ProfilePageViewProps> = ({ data }) => {
   const { windowWidth } = useWindowWidth();
 
   const direction = windowWidth > 800 ? 'horizontal' : 'vertical';
@@ -44,7 +27,7 @@ const ProfilePageView: React.FC = () => {
       <Avatar />
 
       <Space $direction="vertical" $gap={gap} style={{ flexGrow: 1 }}>
-        <KeyValueTable dataSource={dataSource} />
+        <KeyValueTable dataSource={getMainTableDataSource(data)} />
         <Space $gap={gap}>
           <QrCode />
           <Debt />

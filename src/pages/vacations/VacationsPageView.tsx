@@ -11,22 +11,22 @@ import { useColumns } from './hooks/useColumns';
 
 const dataSource: IVacation[] = [
   {
+    id: '123',
     date: '13.03.2023',
-    main: 20,
-    mks: 8,
-    irregularDays: 0,
-    totalDays: 28,
-    materialAid: false,
-    reducedFare: true,
+    generalDays: 4,
+    northernDays: 5,
+    irregularDays: 6,
+    assistance: true,
+    preferentialTravel: false,
   },
   {
-    date: '01.11.2023',
-    main: 8,
-    mks: 8,
-    irregularDays: 0,
-    totalDays: 16,
-    materialAid: true,
-    reducedFare: false,
+    id: '1232',
+    date: '13.03.2023',
+    generalDays: 4,
+    northernDays: 5,
+    irregularDays: 6,
+    assistance: true,
+    preferentialTravel: false,
   },
 ];
 

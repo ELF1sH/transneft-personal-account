@@ -12,18 +12,18 @@ export const FormWrapper = styled.div<ThemeProps<DefaultTheme>>`
   ${({ theme }) => css`
     position: absolute;
     top: 40%;
-    left: 50%;
+    left: calc(50% - 10px);
     transform: translate(-50%, -50%);
     
-    width: 490px;
+    width: min(490px, calc(100% - 20px));
     border-radius: 2px;
     padding: 20px;
+    margin: 0 10px;
     
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
-    text-align: center;
     
     background-color: ${theme.colorBgContainer};
     
