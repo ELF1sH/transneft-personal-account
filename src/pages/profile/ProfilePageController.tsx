@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProfilePageView from 'pages/profile/ProfilePageView';
+import ProfilePageView from './ProfilePageView';
 
 const ProfilePageController: React.FC = () => (
   <ProfilePageView />

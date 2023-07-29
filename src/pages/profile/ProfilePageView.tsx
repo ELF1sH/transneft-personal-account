@@ -1,14 +1,14 @@
 import React from 'react';
+import { Avatar } from 'antd';
 
 import KeyValueTable from 'components/molecules/keyValueTable/KeyValueTable';
 import { IKeyValueDataSource } from 'components/molecules/keyValueTable/types';
 import Space from 'components/atoms/space/Space';
 
-import Debt from 'pages/profile/components/debt/Debt';
-import Avatar from 'pages/profile/components/avatar/Avatar';
-import QrCode from 'pages/profile/components/qrCode/QrCode';
-
 import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
+
+import QrCode from './components/qrCode/QrCode';
+import Debt from './components/debt/Debt';
 
 const dataSource: IKeyValueDataSource[] = [
   {

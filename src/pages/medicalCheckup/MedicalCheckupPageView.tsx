@@ -7,7 +7,7 @@ import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper
 
 import { IMedicalCheckup } from 'domain/entities/medicalCheckup';
 
-import { useColumns } from 'pages/medicalCheckup/hooks/useColumns';
+import { useColumns } from './hooks/useColumns';
 
 const dataSource: IMedicalCheckup[] = [
   {

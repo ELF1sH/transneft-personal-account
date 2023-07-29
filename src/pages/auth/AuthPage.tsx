@@ -5,10 +5,10 @@ import logo from 'assets/logo.svg';
 
 import { PageBackground } from 'components/atoms/pageBackground/PageBackgrond';
 
-import FormPasswordStep from 'pages/auth/components/FormPasswordStep/FormPasswordStep';
-import { AuthStep } from 'pages/auth/interfaces';
-import { AuthPageWrapper, FormWrapper } from 'pages/auth/styled';
-import FormPersonnelNumberStep from 'pages/auth/components/FormPersonnelNumberStep/FormPersonnelNumberStep';
+import { AuthPageWrapper, FormWrapper } from './styled';
+import FormPersonnelNumberStep from './components/FormPersonnelNumberStep/FormPersonnelNumberStep';
+import FormPasswordStep from './components/FormPasswordStep/FormPasswordStep';
+import { AuthStep } from './interfaces';
 
 const { Title, Paragraph } = Typography;
 

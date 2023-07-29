@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { IWorkingScheduleSummarize } from 'domain/entities/workingSchedule';
 
-import { useColumns } from 'pages/workingSchedule/components/scheduleSummarizeTable/hooks/useColumns';
+import { useColumns } from './hooks/useColumns';
 
 const dataSource: IWorkingScheduleSummarize[] = [
   {

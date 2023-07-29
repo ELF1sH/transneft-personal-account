@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'antd';
 import styled from 'styled-components';
 
-import { useColumns } from 'pages/workingSchedule/components/monthScheduleTable/hooks/useColumns';
+import { useColumns } from './hooks/useColumns';
 
 const daysOut = [3, 4, 10, 11, 17, 18, 24, 25];
 const daysHoliday = [12];

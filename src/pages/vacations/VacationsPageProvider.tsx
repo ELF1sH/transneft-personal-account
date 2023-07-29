@@ -1,6 +1,6 @@
 import React from 'react';
 
-import VacationsPageController from 'pages/vacations/VacationsPageController';
+import VacationsPageController from './VacationsPageController';
 
 const VacationsPageProvider: React.FC = () => (
   <VacationsPageController />

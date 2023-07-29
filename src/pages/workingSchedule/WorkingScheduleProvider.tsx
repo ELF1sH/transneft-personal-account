@@ -1,6 +1,6 @@
 import React from 'react';
 
-import WorkingScheduleController from 'pages/workingSchedule/WorkingScheduleController';
+import WorkingScheduleController from './WorkingScheduleController';
 
 const WorkingScheduleProvider: React.FC = () => (
   <WorkingScheduleController />

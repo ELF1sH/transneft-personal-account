@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Select, SelectProps, Tabs } from 'antd';
 
-import { tabItemsToSelectOptions } from 'pages/workingSchedule/components/monthsTabs/helpers/tabItemsToSelectOptions';
-import { items } from 'pages/workingSchedule/components/monthsTabs/constants/tabMonthsItems';
-
 import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
+
+import { items } from './constants/tabMonthsItems';
+import { tabItemsToSelectOptions } from './helpers/tabItemsToSelectOptions';
 
 interface MonthsTabsProps {
 

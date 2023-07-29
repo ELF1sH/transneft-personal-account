@@ -3,7 +3,7 @@ import { Table } from 'antd';
 
 import { IWorkingScheduleUserInfo } from 'domain/entities/workingSchedule';
 
-import { useColumns } from 'pages/workingSchedule/components/userInfoTable/hooks/useColumns';
+import { useColumns } from './hooks/useColumns';
 
 const dataSource: IWorkingScheduleUserInfo[] = [
   {

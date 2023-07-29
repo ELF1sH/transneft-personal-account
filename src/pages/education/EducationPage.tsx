@@ -7,7 +7,7 @@ import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper
 
 import { IEducation } from 'domain/entities/education';
 
-import { useColumns } from 'pages/education/hooks/useColumns';
+import { useColumns } from './hooks/useColumns';
 
 const dataSource: IEducation[] = [
   {

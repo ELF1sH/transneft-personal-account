@@ -7,7 +7,7 @@ import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper
 
 import { IInventoryControlItem } from 'domain/entities/inventoryControlItem';
 
-import { useColumns } from 'pages/inventoryControl/hooks/useColumns';
+import { useColumns } from './hooks/useColumns';
 
 const dataSource: IInventoryControlItem[] = [
   {

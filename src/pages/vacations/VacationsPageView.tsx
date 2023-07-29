@@ -7,7 +7,7 @@ import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper
 
 import { IVacation } from 'domain/entities/vacation';
 
-import { useColumns } from 'pages/vacations/hooks/useColumns';
+import { useColumns } from './hooks/useColumns';
 
 const dataSource: IVacation[] = [
   {

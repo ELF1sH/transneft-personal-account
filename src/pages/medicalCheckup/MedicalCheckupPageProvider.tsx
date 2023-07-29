@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MedicalCheckupPageController from 'pages/medicalCheckup/MedicalCheckupPageController';
+import MedicalCheckupPageController from './MedicalCheckupPageController';
 
 const MedicalCheckupPageProvider: React.FC = () => (
   <MedicalCheckupPageController />
