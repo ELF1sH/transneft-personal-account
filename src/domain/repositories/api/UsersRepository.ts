@@ -14,7 +14,7 @@ import {
   IGetQrCodePayload,
   IGetQrCodeResponse,
   IGetSchedulePayload,
-  IGetScheduleResponse,
+  IGetScheduleResponse, IGetVacationsPayload, IGetVacationsResponse,
   IUsersRepository,
 } from './interfaces/IUsersRepository';
 import { axiosInstance } from './axiosInstance';
@@ -49,6 +49,10 @@ class UsersRepository implements IUsersRepository {
   public getSchedule = ({ userId, month }: IGetSchedulePayload) => axiosInstance
     .get(`${this.prefix}/${userId}/schedules?month=${month}`)
     .then((response: AxiosResponse<IGetScheduleResponse>) => response.data);
+
+  public getVacations = ({ userId, page, limit }: IGetVacationsPayload) => axiosInstance
+    .get(`${this.prefix}/${userId}/vacations?page=${page}&limit=${limit}`)
+    .then((response: AxiosResponse<IGetVacationsResponse>) => response.data);
 }
 
 export const usersRepository = new UsersRepository();

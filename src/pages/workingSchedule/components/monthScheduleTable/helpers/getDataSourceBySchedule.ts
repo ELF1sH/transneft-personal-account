@@ -20,5 +20,8 @@ export const getDataSourceBySchedule = (days: IScheduleDay[]) => {
   const nightHoursRow = Object.fromEntries(nightHoursEntries);
 
   // Returning result
+  if (Object.values(workedHoursRow).length === 1 && Object.values(nightHoursRow).length === 1) {
+    return [];
+  }
   return [workedHoursRow, nightHoursRow];
 };

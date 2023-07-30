@@ -12,7 +12,6 @@ import AppHeader from 'components/organisms/appHeader/AppHeader';
 import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapper';
 
 import AuthPage from 'pages/auth/AuthPage';
-import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
 import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
@@ -27,6 +26,7 @@ import EducationPageController from './pages/education/EducationPageController';
 import InventoryControlPageController from './pages/inventoryControl/InventoryControlPageController';
 import WorkingHoursPageController from './pages/workingHours/WorkingHoursPageController';
 import WorkingScheduleController from './pages/workingSchedule/WorkingScheduleController';
+import VacationsPageController from './pages/vacations/VacationsPageController';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -51,7 +51,7 @@ const App: React.FC = () => {
                       <Routes>
                         <Route path={getRoute(RouteItem.PROFILE)} element={<ProfilePage />} />
 
-                        <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageProvider />} />
+                        <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageController />} />
                         <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<MedicalCheckupPageController />} />
                         <Route path={getRoute(RouteItem.EDUCATION)} element={<EducationPageController />} />
 

@@ -2,12 +2,15 @@ import { ColumnsType } from 'antd/es/table';
 
 import { IVacation } from 'domain/entities/vacation';
 
+import { getDate } from 'utils/dateTime/getDate';
+
 export const useColumns = (): ColumnsType<IVacation> => [
   {
     title: 'Дата',
     key: 'date',
     dataIndex: 'date',
     align: 'center',
+    render: (value) => getDate(value),
   },
   {
     title: 'Дни отпуска',
@@ -39,7 +42,9 @@ export const useColumns = (): ColumnsType<IVacation> => [
         key: 'totalDays',
         dataIndex: 'totalDays',
         align: 'center',
-        render: (value) => (!value ? '-' : value),
+        render: (_, { northernDays, irregularDays, generalDays }) => (
+          northernDays + irregularDays + generalDays
+        ),
       },
     ],
   },

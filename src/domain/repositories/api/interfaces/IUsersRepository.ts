@@ -2,6 +2,8 @@ import { IMedicalCheckup } from 'domain/entities/medicalCheckup';
 import { IEducation } from 'domain/entities/education';
 import { IInventoryControlItem } from 'domain/entities/inventoryControlItem';
 import { IScheduleDay, ISummarizeStatistic } from 'domain/entities/workingSchedule';
+import { IPaginationPayload, IPaginationResponse } from 'domain/entities/common';
+import { IVacation } from 'domain/entities/vacation';
 
 export interface IUsersRepository {
   getPasswordStatus: (payload: IGetPasswordStatusPayload) => Promise<IGetPasswordStatusResponse>;
@@ -17,6 +19,8 @@ export interface IUsersRepository {
   getMeasures: (payload: IGetMeasuresPayload) => Promise<IGetMeasuresResponse>;
 
   getSchedule: (payload: IGetSchedulePayload) => Promise<IGetScheduleResponse>;
+
+  getVacations: (payload: IGetVacationsPayload) => Promise<IGetVacationsResponse>;
 }
 
 export interface IGetPasswordStatusPayload {
@@ -74,4 +78,11 @@ export interface IGetScheduleResponse {
   days: IScheduleDay[];
   monthlyStatistics: ISummarizeStatistic;
   yearlyStatistics: ISummarizeStatistic;
+}
+
+export interface IGetVacationsPayload extends IPaginationPayload {
+  userId: string;
+}
+export interface IGetVacationsResponse extends IPaginationResponse {
+  vacations: IVacation[];
 }
