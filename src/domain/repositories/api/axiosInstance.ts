@@ -2,6 +2,7 @@ import axios from 'axios';
 import { router } from 'index';
 
 import { tokenRepository } from 'domain/repositories/cookies/TokenRepository';
+import { IAuthResponse } from 'domain/entities/auth';
 
 import { getRoute } from 'utils/routes/getRoute';
 import { RouteItem } from 'utils/interfaces/routes';
@@ -12,15 +13,12 @@ export const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
-const authURLS = ['/auth/login', 'auth/refresh', 'auth/password', 'auth/login/qr-code'];
+const authURLS = ['auth/login', 'auth/refresh', 'auth/password', 'auth/login/qr-code'];
 
 axiosInstance.interceptors.request.use(
   (cfg) => {
-    if (!authURLS.includes(cfg.url ?? '')
-      && (!tokenRepository.getUserId()
-      || !tokenRepository.getRefreshToken()
-      || !tokenRepository.getAccessToken())
-    ) {
+    if (!authURLS.includes(cfg.url ?? '') && !tokenRepository.getRefreshToken()) {
+      tokenRepository.reset();
       router.navigate(getRoute(RouteItem.BASE));
     }
 
@@ -40,6 +38,8 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
+let promiseOfGettingNewRefreshToken: Promise<IAuthResponse> | null = null;
+
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -49,18 +49,24 @@ axiosInstance.interceptors.response.use(
       && !authURLS.includes(originalRequest.url)
       && !originalRequest._retry
     ) {
-      originalRequest._retry = true;
+      if (!promiseOfGettingNewRefreshToken) {
+        originalRequest._retry = true;
 
-      const result = await authRepository.refresh();
+        promiseOfGettingNewRefreshToken = authRepository.refresh().then((response) => {
+          tokenRepository.init(response.accessToken, response.refreshToken);
 
-      if (result) {
-        tokenRepository.init(result.accessToken, result.refreshToken);
+          promiseOfGettingNewRefreshToken = null;
+          return response;
+        });
       }
 
-      return axiosInstance(originalRequest);
+      return promiseOfGettingNewRefreshToken.then(() => {
+        axiosInstance(originalRequest);
+      });
     }
 
-    if (originalRequest.url === 'auth/refresh') {
+    if (error.response?.status === 401
+      && originalRequest.url === 'auth/refresh') {
       tokenRepository.reset();
 
       router.navigate(getRoute(RouteItem.BASE));
