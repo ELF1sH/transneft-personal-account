@@ -1,8 +1,6 @@
 import { ColumnsType } from 'antd/es/table';
 
-import { IWorkingScheduleUserInfo } from 'domain/entities/workingSchedule';
-
-export const useColumns = (): ColumnsType<IWorkingScheduleUserInfo> => [
+export const useColumns = (): ColumnsType => [
   {
     title: 'ФИО',
     key: 'fullName',
@@ -11,26 +9,26 @@ export const useColumns = (): ColumnsType<IWorkingScheduleUserInfo> => [
   },
   {
     title: 'Должность',
-    key: 'jobTitle',
-    dataIndex: 'jobTitle',
+    key: 'position',
+    dataIndex: 'position',
     align: 'center',
   },
   {
     title: 'Табельный номер',
-    key: 'personnelNumber',
-    dataIndex: 'personnelNumber',
+    key: 'employeeId',
+    dataIndex: 'employeeId',
     align: 'center',
   },
   {
     title: 'Номер режима работы',
-    key: 'workingScheduleNumber',
-    dataIndex: 'workingScheduleNumber',
+    key: 'number',
+    dataIndex: 'number',
     align: 'center',
   },
   {
     title: 'Признак',
-    key: 'feature',
-    dataIndex: 'feature',
+    key: 'sex',
+    dataIndex: 'sex',
     align: 'center',
   },
 ];

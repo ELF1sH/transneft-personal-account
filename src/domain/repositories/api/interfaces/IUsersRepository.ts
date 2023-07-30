@@ -1,6 +1,7 @@
 import { IMedicalCheckup } from 'domain/entities/medicalCheckup';
 import { IEducation } from 'domain/entities/education';
 import { IInventoryControlItem } from 'domain/entities/inventoryControlItem';
+import { IScheduleDay, ISummarizeStatistic } from 'domain/entities/workingSchedule';
 
 export interface IUsersRepository {
   getPasswordStatus: (payload: IGetPasswordStatusPayload) => Promise<IGetPasswordStatusResponse>;
@@ -14,6 +15,8 @@ export interface IUsersRepository {
   getEducations: (payload: IGetEducationsPayload) => Promise<IGetEducationsResponse>;
 
   getMeasures: (payload: IGetMeasuresPayload) => Promise<IGetMeasuresResponse>;
+
+  getSchedule: (payload: IGetSchedulePayload) => Promise<IGetScheduleResponse>;
 }
 
 export interface IGetPasswordStatusPayload {
@@ -57,3 +60,18 @@ export interface IGetMeasuresPayload {
   userId: string;
 }
 export type IGetMeasuresResponse = IInventoryControlItem;
+
+export interface IGetSchedulePayload {
+  userId: string;
+  month: number;
+}
+export interface IGetScheduleResponse {
+  fullName: string;
+  position: string;
+  employeeId: number;
+  number: string;
+  sex: string;
+  days: IScheduleDay[];
+  monthlyStatistics: ISummarizeStatistic;
+  yearlyStatistics: ISummarizeStatistic;
+}

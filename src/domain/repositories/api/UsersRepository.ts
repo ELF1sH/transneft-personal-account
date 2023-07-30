@@ -1,11 +1,20 @@
 import { AxiosResponse } from 'axios';
 
 import {
-  IGetEducationsPayload, IGetEducationsResponse, IGetMeasuresPayload, IGetMeasuresResponse,
-  IGetMedicalCheckupsPayload, IGetMedicalCheckupsResponse,
+  IGetEducationsPayload,
+  IGetEducationsResponse,
+  IGetMeasuresPayload,
+  IGetMeasuresResponse,
+  IGetMedicalCheckupsPayload,
+  IGetMedicalCheckupsResponse,
   IGetPasswordStatusPayload,
   IGetPasswordStatusResponse,
-  IGetProfilePayload, IGetProfileResponse, IGetQrCodePayload, IGetQrCodeResponse,
+  IGetProfilePayload,
+  IGetProfileResponse,
+  IGetQrCodePayload,
+  IGetQrCodeResponse,
+  IGetSchedulePayload,
+  IGetScheduleResponse,
   IUsersRepository,
 } from './interfaces/IUsersRepository';
 import { axiosInstance } from './axiosInstance';
@@ -36,6 +45,10 @@ class UsersRepository implements IUsersRepository {
   public getMeasures = ({ userId }: IGetMeasuresPayload) => axiosInstance
     .get(`${this.prefix}/${userId}/measures`)
     .then((response: AxiosResponse<IGetMeasuresResponse>) => response.data);
+
+  public getSchedule = ({ userId, month }: IGetSchedulePayload) => axiosInstance
+    .get(`${this.prefix}/${userId}/schedules?month=${month}`)
+    .then((response: AxiosResponse<IGetScheduleResponse>) => response.data);
 }
 
 export const usersRepository = new UsersRepository();

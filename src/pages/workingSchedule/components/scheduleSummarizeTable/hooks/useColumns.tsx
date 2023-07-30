@@ -2,11 +2,9 @@ import React from 'react';
 import { ColumnsType } from 'antd/es/table';
 import { Typography } from 'antd';
 
-import { IWorkingScheduleSummarize } from 'domain/entities/workingSchedule';
-
 const { Text } = Typography;
 
-export const useColumns = (): ColumnsType<IWorkingScheduleSummarize> => [
+export const useColumns = (): ColumnsType => [
   {
     title: 'Рабочее время за месяц, часов',
     key: 'month',
@@ -14,39 +12,43 @@ export const useColumns = (): ColumnsType<IWorkingScheduleSummarize> => [
     children: [
       {
         title: 'По графику',
-        key: 'hoursScheduled',
-        dataIndex: 'hoursScheduled',
+        key: 'workedHoursMonth',
+        dataIndex: 'workedHoursMonth',
         align: 'center',
         width: '0px',
+        render: (value) => value || '',
       },
       {
         title: 'Норма',
-        key: 'hoursStandard',
-        dataIndex: 'hoursStandard',
+        key: 'totalHoursMonth',
+        dataIndex: 'totalHoursMonth',
         align: 'center',
         width: '0px',
-        render: (value) => (<Text type="danger">{value}</Text>),
+        render: (value) => (<Text type="danger">{value || ''}</Text>),
       },
       {
         title: 'Отклонение от нормы',
-        key: 'deviationFromTheStandard',
-        dataIndex: 'deviationFromTheStandard',
+        key: 'differenceMonth',
+        dataIndex: 'differenceMonth',
         align: 'center',
         width: '0px',
+        render: (value) => value || '',
       },
       {
         title: 'Кол-во ночных часов',
-        key: 'hoursNight',
-        dataIndex: 'hoursNight',
+        key: 'nightHoursMonth',
+        dataIndex: 'nightHoursMonth',
         align: 'center',
         width: '0px',
+        render: (value) => value || '',
       },
       {
         title: 'Кол-во праздничных часов',
-        key: 'hoursHoliday',
-        dataIndex: 'hoursHoliday',
+        key: 'holidayHoursMonth',
+        dataIndex: 'holidayHoursMonth',
         align: 'center',
         width: '0px',
+        render: (value) => value || '',
       },
     ],
   },
@@ -57,32 +59,43 @@ export const useColumns = (): ColumnsType<IWorkingScheduleSummarize> => [
     children: [
       {
         title: 'По графику',
-        key: 'hoursScheduledYear',
-        dataIndex: 'hoursScheduledYear',
+        key: 'workedHoursYear',
+        dataIndex: 'workedHoursYear',
         align: 'center',
         width: '0px',
+        render: (value) => value || '',
       },
       {
         title: 'Норма',
-        key: 'hoursStandardYear',
-        dataIndex: 'hoursStandardYear',
+        key: 'totalHoursYear',
+        dataIndex: 'totalHoursYear',
         align: 'center',
-        render: (value) => (<Text type="danger">{value}</Text>),
         width: '0px',
+        render: (value) => (<Text type="danger">{value || ''}</Text>),
       },
       {
         title: 'Отклонение от нормы',
-        key: 'deviationFromTheStandardYear',
-        dataIndex: 'deviationFromTheStandardYear',
+        key: 'differenceYear',
+        dataIndex: 'differenceYear',
         align: 'center',
         width: '0px',
+        render: (value) => value || '',
+      },
+      {
+        title: 'Кол-во ночных часов',
+        key: 'nightHoursYear',
+        dataIndex: 'nightHoursYear',
+        align: 'center',
+        width: '0px',
+        render: (value) => value || '',
       },
       {
         title: 'Кол-во праздничных часов',
-        key: 'hoursHolidayYear',
-        dataIndex: 'hoursHolidayYear',
+        key: 'holidayHoursYear',
+        dataIndex: 'holidayHoursYear',
         align: 'center',
         width: '0px',
+        render: (value) => value || '',
       },
     ],
   },

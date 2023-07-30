@@ -1,37 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Select, SelectProps, Tabs } from 'antd';
+
+import { useWorkingScheduleContext } from 'pages/workingSchedule/context';
 
 import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
 
 import { items } from './constants/tabMonthsItems';
 import { tabItemsToSelectOptions } from './helpers/tabItemsToSelectOptions';
 
-interface MonthsTabsProps {
-
-}
-
-const MonthsTabs: React.FC<MonthsTabsProps> = () => {
+const MonthsTabs: React.FC = () => {
   const { windowWidth } = useWindowWidth();
 
-  const [activeTab, setActiveTab] = useState(items![0].key);
+  const { currentTab, setCurrentTab } = useWorkingScheduleContext();
 
   return (
     windowWidth > 800
       ? (
         <TabStyled
-          activeKey={activeTab}
+          activeKey={currentTab.toString()}
           items={items}
           centered
           size="small"
-          onChange={setActiveTab}
+          onChange={(activeTab: string) => setCurrentTab(+activeTab)}
         />
       )
       : (
         <SelectStyled
           options={tabItemsToSelectOptions(items)}
-          value={activeTab}
-          onChange={setActiveTab}
+          value={currentTab}
+          onChange={setCurrentTab}
         />
       )
   );

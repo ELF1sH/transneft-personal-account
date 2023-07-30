@@ -3,28 +3,19 @@ import styled from 'styled-components';
 
 import Table from 'components/molecules/table/Table';
 
+import { useWorkingScheduleContext } from 'pages/workingSchedule/context';
+
 import { useColumns } from './hooks/useColumns';
-
-const daysOut = [3, 4, 10, 11, 17, 18, 24, 25];
-const daysHoliday = [12];
-
-const presence: [number, string][] = Array.from(
-  { length: 31 },
-  (x, i) => [i + 1, daysOut.includes(i + 1) || daysHoliday.includes(i + 1) ? 'В' : '8'],
-);
-const presenceObj = Object.fromEntries(presence);
-presenceObj.date = 'Явка';
-
-const night: [number, string][] = Array.from({ length: 31 }, (x, i) => [i + 1, '']);
-const nightObj = Object.fromEntries(night);
-nightObj.date = 'Ночь';
+import { getDataSourceBySchedule } from './helpers/getDataSourceBySchedule';
 
 const MonthScheduleTable: React.FC = () => {
-  const columns = useColumns(daysOut, daysHoliday);
+  const { schedule } = useWorkingScheduleContext();
+
+  const columns = useColumns(schedule?.days ?? []);
 
   return (
     <TableStyled
-      dataSource={[presenceObj, nightObj]}
+      dataSource={getDataSourceBySchedule(schedule?.days ?? [])}
       columns={columns}
       rowKey="date"
       scroll={{ x: '700px' }}

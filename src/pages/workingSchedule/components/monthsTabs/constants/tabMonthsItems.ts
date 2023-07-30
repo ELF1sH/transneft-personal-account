@@ -2,51 +2,51 @@ import { TabsProps } from 'antd';
 
 export const items: TabsProps['items'] = [
   {
-    key: 'January',
+    key: '1',
     label: 'Январь',
   },
   {
-    key: 'February',
+    key: '2',
     label: 'Февраль',
   },
   {
-    key: 'March',
+    key: '3',
     label: 'Март',
   },
   {
-    key: 'April',
+    key: '4',
     label: 'Апрель',
   },
   {
-    key: 'May',
+    key: '5',
     label: 'Май',
   },
   {
-    key: 'June',
+    key: '6',
     label: 'Июнь',
   },
   {
-    key: 'July',
+    key: '7',
     label: 'Июль',
   },
   {
-    key: 'August',
+    key: '8',
     label: 'Август',
   },
   {
-    key: 'September',
+    key: '9',
     label: 'Сентябрь',
   },
   {
-    key: 'October',
+    key: '10',
     label: 'Октябрь',
   },
   {
-    key: 'November',
+    key: '11',
     label: 'Ноябрь',
-  }, {
-    key: 'December',
+  },
+  {
+    key: '12',
     label: 'Декабрь',
   },
-
 ];

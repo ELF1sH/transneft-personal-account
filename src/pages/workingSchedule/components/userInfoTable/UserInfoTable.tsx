@@ -2,29 +2,20 @@ import React from 'react';
 
 import Table from 'components/molecules/table/Table';
 
-import { IWorkingScheduleUserInfo } from 'domain/entities/workingSchedule';
+import { useWorkingScheduleContext } from 'pages/workingSchedule/context';
 
 import { useColumns } from './hooks/useColumns';
-
-const dataSource: IWorkingScheduleUserInfo[] = [
-  {
-    id: '1',
-    fullName: 'Шевцов О. П.',
-    jobTitle: 'Инженер-механик 1 категории',
-    personnelNumber: '13023478',
-    workingScheduleNumber: 'N40N0100',
-    feature: 'м',
-  },
-];
 
 const UserInfoTable: React.FC = () => {
   const columns = useColumns();
 
+  const { schedule } = useWorkingScheduleContext();
+
   return (
     <Table
       columns={columns}
-      dataSource={dataSource}
-      rowKey="id"
+      dataSource={[schedule]}
+      rowKey="fullName"
       scroll={{ x: '700px' }}
     />
   );

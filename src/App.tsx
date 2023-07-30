@@ -12,7 +12,6 @@ import AppHeader from 'components/organisms/appHeader/AppHeader';
 import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapper';
 
 import AuthPage from 'pages/auth/AuthPage';
-import WorkingScheduleProvider from 'pages/workingSchedule/WorkingScheduleProvider';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
@@ -27,6 +26,7 @@ import MedicalCheckupPageController from './pages/medicalCheckup/MedicalCheckupP
 import EducationPageController from './pages/education/EducationPageController';
 import InventoryControlPageController from './pages/inventoryControl/InventoryControlPageController';
 import WorkingHoursPageController from './pages/workingHours/WorkingHoursPageController';
+import WorkingScheduleController from './pages/workingSchedule/WorkingScheduleController';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -58,7 +58,7 @@ const App: React.FC = () => {
                         <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<InventoryControlPageController />} />
 
                         <Route path={getRoute(RouteItem.WORKING_HOURS)} element={<WorkingHoursPageController />} />
-                        <Route path={getRoute(RouteItem.WORKING_SCHEDULE)} element={<WorkingScheduleProvider />} />
+                        <Route path={getRoute(RouteItem.WORKING_SCHEDULE)} element={<WorkingScheduleController />} />
 
                         <Route path={getRoute(RouteItem.REDUCED_FARE)} element={<h1>Льготный проезд</h1>} />
                         <Route path={getRoute(RouteItem.INCOME_TAX)} element={<h1>НДФЛ</h1>} />
@@ -67,7 +67,7 @@ const App: React.FC = () => {
                         <Route path={getRoute(RouteItem.RENTAL)} element={<h1>Аренда жилья</h1>} />
                         <Route path={getRoute(RouteItem.KINDERGARTEN)} element={<h1>Детский сад</h1>} />
                         <Route path={getRoute(RouteItem.SANATORIUM)} element={<h1>Санаторий</h1>} />
-                        <Route path={getRoute(RouteItem.VACATION_APPLICATIONS)} element={<h1>Заявлени</h1>} />
+                        <Route path={getRoute(RouteItem.VACATION_APPLICATIONS)} element={<h1>Заявление</h1>} />
                         <Route path={getRoute(RouteItem.ENQUIRY)} element={<h1>Справка</h1>} />
                         <Route path={getRoute(RouteItem.WORK_BOOK_COPY)} element={<h1>Копия</h1>} />
 

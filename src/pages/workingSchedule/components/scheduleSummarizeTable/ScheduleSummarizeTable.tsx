@@ -1,39 +1,61 @@
 import React from 'react';
-import { TableProps } from 'antd';
 import styled from 'styled-components';
 
 import Table from 'components/molecules/table/Table';
 
-import { IWorkingScheduleSummarize } from 'domain/entities/workingSchedule';
+import { useWorkingScheduleContext } from 'pages/workingSchedule/context';
 
 import { useColumns } from './hooks/useColumns';
 
-const dataSource: IWorkingScheduleSummarize[] = [
-  {
-    id: '1',
-    hoursScheduled: '168,00',
-    hoursStandard: '168,00',
-    hoursScheduledYear: '488,00',
-    hoursStandardYear: '488,00',
-  },
-];
+interface SummarizeTableRow {
+  differenceMonth: number;
+  holidayHoursMonth: number;
+  nightHoursMonth: number;
+  totalHoursMonth: number;
+  workedHoursMonth: number;
+
+  differenceYear: number;
+  holidayHoursYear: number;
+  nightHoursYear: number;
+  totalHoursYear: number;
+  workedHoursYear: number;
+}
 
 const ScheduleSummarizeTable: React.FC = () => {
   const columns = useColumns();
+  const { schedule } = useWorkingScheduleContext();
+
+  const row: SummarizeTableRow = {
+    differenceMonth: schedule!.monthlyStatistics.difference,
+    holidayHoursMonth: schedule!.monthlyStatistics.holidayHours,
+    nightHoursMonth: schedule!.monthlyStatistics.nightHours,
+    totalHoursMonth: schedule!.monthlyStatistics.totalHours,
+    workedHoursMonth: schedule!.monthlyStatistics.workedHours,
+
+    differenceYear: schedule!.yearlyStatistics.difference,
+    holidayHoursYear: schedule!.yearlyStatistics.holidayHours,
+    nightHoursYear: schedule!.yearlyStatistics.nightHours,
+    totalHoursYear: schedule!.yearlyStatistics.totalHours,
+    workedHoursYear: schedule!.yearlyStatistics.workedHours,
+  };
 
   return (
     <TableStyled
       columns={columns}
-      dataSource={dataSource}
-      rowKey="id"
+      dataSource={[row]}
+      rowKey="differenceMonth"
       scroll={{ x: '700px' }}
     />
   );
 };
 
-const TableStyled = styled(Table)<TableProps<IWorkingScheduleSummarize>>`
+const TableStyled = styled(Table)`
   .ant-table-cell {
     padding: 16px 2px !important;
+    
+    @media (max-width: 1200px) {
+      padding: 16px 0 !important;
+    }
   }
 `;
 

@@ -1,6 +1,10 @@
 import { ColumnsType } from 'antd/es/table';
 
-export const useColumns = (daysOut: number[], daysHoliday: number[]): ColumnsType<object> => [
+import { IScheduleDay, IScheduleDayType } from 'domain/entities/workingSchedule';
+
+import { getDay } from 'utils/dateTime/getDay';
+
+export const useColumns = (days: IScheduleDay[]): ColumnsType<object> => [
   {
     title: 'Дата',
     key: 'date',
@@ -8,23 +12,23 @@ export const useColumns = (daysOut: number[], daysHoliday: number[]): ColumnsTyp
     align: 'center',
     width: '40px',
   },
-  ...Array.from({ length: 31 }, (x, i) => ({
-    title: (i + 1).toString(),
-    key: (i + 1).toString(),
-    dataIndex: (i + 1).toString(),
+  ...days.map((day) => ({
+    title: getDay(day.date),
+    key: getDay(day.date),
+    dataIndex: getDay(day.date),
     align: 'center' as const,
     width: '28px',
     onCell: () => ({
-      style: daysOut.includes(i + 1)
+      style: day.type === IScheduleDayType.WEEKEND
         ? { background: '#CCFFCC' }
-        : daysHoliday.includes(i + 1)
+        : day.type === IScheduleDayType.HOLIDAY
           ? { background: '#FFCCFF' }
           : {},
     }),
     onHeaderCell: () => ({
-      style: daysOut.includes(i + 1)
+      style: day.type === IScheduleDayType.WEEKEND
         ? { background: '#CCFFCC' }
-        : daysHoliday.includes(i + 1)
+        : day.type === IScheduleDayType.HOLIDAY
           ? { background: '#FFCCFF' }
           : {},
     }),
