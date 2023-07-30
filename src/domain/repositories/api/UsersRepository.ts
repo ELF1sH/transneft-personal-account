@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 import {
-  IGetEducationsPayload, IGetEducationsResponse,
+  IGetEducationsPayload, IGetEducationsResponse, IGetMeasuresPayload, IGetMeasuresResponse,
   IGetMedicalCheckupsPayload, IGetMedicalCheckupsResponse,
   IGetPasswordStatusPayload,
   IGetPasswordStatusResponse,
@@ -32,6 +32,10 @@ class UsersRepository implements IUsersRepository {
   public getEducations = ({ userId }: IGetEducationsPayload) => axiosInstance
     .get(`${this.prefix}/${userId}/educations`)
     .then((response: AxiosResponse<IGetEducationsResponse>) => response.data);
+
+  public getMeasures = ({ userId }: IGetMeasuresPayload) => axiosInstance
+    .get(`${this.prefix}/${userId}/measures`)
+    .then((response: AxiosResponse<IGetMeasuresResponse>) => response.data);
 }
 
 export const usersRepository = new UsersRepository();

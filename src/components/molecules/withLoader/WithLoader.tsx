@@ -38,7 +38,7 @@ const WithLoader = <T, >(Component: React.FC<any>) => {
             <Result
               status="404"
               title="404"
-              subTitle="Данная страница не существует"
+              subTitle="Данные не существуют"
             />
           );
         }

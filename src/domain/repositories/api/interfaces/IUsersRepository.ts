@@ -1,5 +1,6 @@
 import { IMedicalCheckup } from 'domain/entities/medicalCheckup';
 import { IEducation } from 'domain/entities/education';
+import { IInventoryControlItem } from 'domain/entities/inventoryControlItem';
 
 export interface IUsersRepository {
   getPasswordStatus: (payload: IGetPasswordStatusPayload) => Promise<IGetPasswordStatusResponse>;
@@ -11,6 +12,8 @@ export interface IUsersRepository {
   getMedicalCheckups: (payload: IGetMedicalCheckupsPayload) => Promise<IGetMedicalCheckupsResponse>;
 
   getEducations: (payload: IGetEducationsPayload) => Promise<IGetEducationsResponse>;
+
+  getMeasures: (payload: IGetMeasuresPayload) => Promise<IGetMeasuresResponse>;
 }
 
 export interface IGetPasswordStatusPayload {
@@ -49,3 +52,8 @@ export interface IGetEducationsPayload {
   userId: string;
 }
 export type IGetEducationsResponse = IEducation[];
+
+export interface IGetMeasuresPayload {
+  userId: string;
+}
+export type IGetMeasuresResponse = IInventoryControlItem;

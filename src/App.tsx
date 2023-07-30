@@ -14,7 +14,6 @@ import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapp
 import AuthPage from 'pages/auth/AuthPage';
 import WorkingScheduleProvider from 'pages/workingSchedule/WorkingScheduleProvider';
 import WorkingHoursPage from 'pages/workingHours/WorkingHoursPage';
-import InventoryControlPage from 'pages/inventoryControl/InventoryControlPage';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
@@ -27,6 +26,7 @@ import ProfilePage from './pages/profile/ProfilePageView';
 import QrPage from './pages/qr/QrPage';
 import MedicalCheckupPageController from './pages/medicalCheckup/MedicalCheckupPageController';
 import EducationPageController from './pages/education/EducationPageController';
+import InventoryControlPageController from './pages/inventoryControl/InventoryControlPageController';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -55,7 +55,7 @@ const App: React.FC = () => {
                         <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<MedicalCheckupPageController />} />
                         <Route path={getRoute(RouteItem.EDUCATION)} element={<EducationPageController />} />
 
-                        <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<InventoryControlPage />} />
+                        <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<InventoryControlPageController />} />
 
                         <Route path={getRoute(RouteItem.WORKING_HOURS)} element={<WorkingHoursPage />} />
                         <Route path={getRoute(RouteItem.WORKING_SCHEDULE)} element={<WorkingScheduleProvider />} />

@@ -1,5 +1,3 @@
-import { pagination } from 'constants/tables/pagination';
-
 import React from 'react';
 
 import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper/PageContentInnerWrapper';
@@ -9,24 +7,18 @@ import { IInventoryControlItem } from 'domain/entities/inventoryControlItem';
 
 import { useColumns } from './hooks/useColumns';
 
-const dataSource: IInventoryControlItem[] = [
-  {
-    height: 187,
-    clothingSize: 48,
-    footSize: 43,
-    headSize: 27,
-  },
-];
+export interface InventoryControlPageViewProps {
+  measure: IInventoryControlItem;
+}
 
-const InventoryControlPage: React.FC = () => {
+const InventoryControlPageView: React.FC<InventoryControlPageViewProps> = ({ measure }) => {
   const columns = useColumns();
 
   return (
     <PageContentInnerWrapper>
       <Table
         columns={columns}
-        dataSource={dataSource}
-        pagination={pagination}
+        dataSource={[measure]}
         rowKey="height"
         scroll={{ x: 'fit-content' }}
       />
@@ -34,4 +26,4 @@ const InventoryControlPage: React.FC = () => {
   );
 };
 
-export default InventoryControlPage;
+export default InventoryControlPageView;
