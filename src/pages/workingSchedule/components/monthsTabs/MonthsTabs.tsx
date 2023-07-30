@@ -28,7 +28,7 @@ const MonthsTabs: React.FC = () => {
       : (
         <SelectStyled
           options={tabItemsToSelectOptions(items)}
-          value={currentTab}
+          value={currentTab.toString()}
           onChange={setCurrentTab}
         />
       )

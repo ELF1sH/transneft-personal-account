@@ -1,7 +1,7 @@
-import { APP_HEADER_EXPANDED_HEIGHT, DRAWER_MAX_WINDOW_WIDTH } from 'constants/layout';
+import { APP_HEADER_EXPAND_WINDOW_WIDTH, APP_HEADER_EXPANDED_HEIGHT, DRAWER_MAX_WINDOW_WIDTH } from 'constants/layout';
 
 import React from 'react';
-import { Typography } from 'antd';
+import { Button, Typography } from 'antd';
 import { Spin as Hamburger } from 'hamburger-react';
 import { colors } from 'theme/colors';
 import { Link } from 'react-router-dom';
@@ -27,7 +27,7 @@ const AppHeader: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
   const { open, close, isOpen } = useDrawerSidebarContext();
 
-  const direction = windowWidth < 700 ? 'vertical' : 'horizontal';
+  const direction = windowWidth < APP_HEADER_EXPAND_WINDOW_WIDTH ? 'vertical' : 'horizontal';
 
   return (
     <PageHeaderSpace
@@ -52,19 +52,20 @@ const AppHeader: React.FC = () => {
         </Link>
       </Space>
 
-      <Link to={getRoute(RouteItem.PROFILE)} style={{ flexShrink: 0, textDecoration: 'none' }}>
+      <Link to={getRoute(RouteItem.PROFILE)} style={{ flexShrink: 0, textDecoration: 'none', marginRight: '12px' }}>
         <Space $gap={8} $fitContent>
           <AvatarWrapper>
             {
-              profile?.avatar
-                ? <Avatar src={profile.avatar} />
-                : <NoPictureDummy fontSize="20px" />
-            }
+                profile?.avatar
+                  ? <Avatar src={profile.avatar} />
+                  : <NoPictureDummy fontSize="20px" />
+              }
           </AvatarWrapper>
           <Typography.Text>{profile?.fullName}</Typography.Text>
         </Space>
       </Link>
 
+      <Button>Выйти</Button>
     </PageHeaderSpace>
   );
 };
