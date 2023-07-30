@@ -12,6 +12,8 @@ export const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
+const authURLS = ['/auth/login', 'auth/refresh', 'auth/password', 'auth/login/qr-code'];
+
 axiosInstance.interceptors.request.use(
   (cfg) => {
     const config = cfg;
@@ -44,8 +46,9 @@ axiosInstance.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response?.status === 401 && originalRequest.url !== '/auth/login'
-      && !originalRequest._retry && originalRequest.url !== 'auth/refresh'
+    if (error.response?.status === 401
+      && !authURLS.includes(originalRequest.url)
+      && !originalRequest._retry
     ) {
       originalRequest._retry = true;
 

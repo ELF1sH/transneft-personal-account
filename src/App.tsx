@@ -26,6 +26,7 @@ import { RouteItem } from 'utils/interfaces/routes';
 
 import UserProvider from './modules/providers/userProvider/UserProvider';
 import ProfilePage from './pages/profile/ProfilePageView';
+import QrPage from './pages/qr/QrPage';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -34,6 +35,7 @@ const App: React.FC = () => {
     <>
       <Routes>
         <Route path={getRoute(RouteItem.BASE)} element={<AuthPage />} />
+        <Route path={getRoute(RouteItem.QR)} element={<QrPage />} />
         <Route
           path="*"
           element={(

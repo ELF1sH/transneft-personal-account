@@ -7,6 +7,7 @@ export enum RouteSection {
 export enum RouteItem {
   BASE = 'base',
   PROFILE = 'profile',
+  QR = 'qr',
 
   VACATIONS = 'vacations',
   MEDICAL_CHECKUP = 'medicalCheckup',

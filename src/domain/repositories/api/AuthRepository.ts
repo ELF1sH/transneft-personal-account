@@ -3,7 +3,9 @@ import { AxiosResponse } from 'axios';
 import { IAuthResponse } from 'domain/entities/auth';
 
 import { axiosInstance } from './axiosInstance';
-import { IAuthRepository, ILoginPayload, IPasswordPayload } from './interfaces/IAuthRepository';
+import {
+  IAuthRepository, ILoginPayload, ILoginViaQrCodePayload, IPasswordPayload,
+} from './interfaces/IAuthRepository';
 
 class AuthRepository implements IAuthRepository {
   private readonly prefix = 'auth';
@@ -18,6 +20,10 @@ class AuthRepository implements IAuthRepository {
 
   public refresh = () => axiosInstance
     .post(`${this.prefix}/refresh`)
+    .then((response: AxiosResponse<IAuthResponse>) => response.data);
+
+  public loginViaQrCode = (payload: ILoginViaQrCodePayload) => axiosInstance
+    .post(`${this.prefix}/login/qr-code`, payload)
     .then((response: AxiosResponse<IAuthResponse>) => response.data);
 }
 

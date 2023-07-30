@@ -27,7 +27,7 @@ const AppHeader: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
   const { open, close, isOpen } = useDrawerSidebarContext();
 
-  const direction = windowWidth < 500 ? 'vertical' : 'horizontal';
+  const direction = windowWidth < 700 ? 'vertical' : 'horizontal';
 
   return (
     <PageHeaderSpace
@@ -57,7 +57,7 @@ const AppHeader: React.FC = () => {
           <AvatarWrapper>
             {
               profile?.avatar
-                ? <Avatar src="https://fakeimg.pl/24x24" />
+                ? <Avatar src={profile.avatar} />
                 : <NoPictureDummy fontSize="20px" />
             }
           </AvatarWrapper>

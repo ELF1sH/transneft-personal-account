@@ -3,6 +3,7 @@ import { RouteItem, RouteSection } from 'utils/interfaces/routes';
 export const routePaths: Record<RouteItem, (RouteItem | RouteSection)[]> = {
   [RouteItem.BASE]: [],
   [RouteItem.PROFILE]: [],
+  [RouteItem.QR]: [],
 
   [RouteItem.VACATIONS]: [RouteItem.PROFILE, RouteSection.PERSONNEL_ACCOUNTING],
   [RouteItem.MEDICAL_CHECKUP]: [RouteItem.PROFILE, RouteSection.PERSONNEL_ACCOUNTING],
