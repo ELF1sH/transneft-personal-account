@@ -1,11 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Avatar: React.FC = () => (
-  <ProfilePageAvatarWrapper>
-    <ProfilePageAvatar src="https://fakeimg.pl/1000x2000" />
-  </ProfilePageAvatarWrapper>
-);
+import { NoPictureDummy } from 'components/atoms/noPictureDummy/NoPictureDummy';
+
+import { useUserContext } from 'modules/providers/userProvider/context';
+
+const Avatar: React.FC = () => {
+  const { profile } = useUserContext();
+
+  return (
+    <ProfilePageAvatarWrapper>
+      {
+        profile?.avatar
+          ? <ProfilePageAvatar src={profile.avatar} />
+          : <NoPictureDummy fontSize="146px" />
+      }
+    </ProfilePageAvatarWrapper>
+  );
+};
 
 const ProfilePageAvatarWrapper = styled.div`
   width: min(100%, 324px);

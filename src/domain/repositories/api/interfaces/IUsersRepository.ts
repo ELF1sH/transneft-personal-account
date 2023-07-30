@@ -2,6 +2,8 @@ export interface IUsersRepository {
   getPasswordStatus: (payload: IGetPasswordStatusPayload) => Promise<IGetPasswordStatusResponse>;
 
   getProfile: (payload: IGetProfilePayload) => Promise<IGetProfileResponse>;
+
+  getQrCode: (payload: IGetQrCodePayload) => Promise<IGetQrCodeResponse>;
 }
 
 export interface IGetPasswordStatusPayload {
@@ -24,4 +26,12 @@ export interface IGetProfileResponse {
   division: string;
   position: string;
   avatar: null;
+}
+
+export interface IGetQrCodePayload {
+  userId: string;
+}
+
+export interface IGetQrCodeResponse {
+  url: string;
 }

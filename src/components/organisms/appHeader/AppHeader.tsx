@@ -11,6 +11,9 @@ import logo from 'assets/logo.svg';
 import { useDrawerSidebarContext } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
 import { Avatar, AvatarWrapper, PageHeaderSpace } from 'components/organisms/appHeader/styled';
 import Space from 'components/atoms/space/Space';
+import { NoPictureDummy } from 'components/atoms/noPictureDummy/NoPictureDummy';
+
+import { useUserContext } from 'modules/providers/userProvider/context';
 
 import { getRoute } from 'utils/routes/getRoute';
 import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
@@ -18,6 +21,8 @@ import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';
 import { RouteItem } from 'utils/interfaces/routes';
 
 const AppHeader: React.FC = () => {
+  const { profile } = useUserContext();
+
   const { windowWidth } = useWindowWidth();
   const { appHeaderHeight } = useAppHeaderHeight();
   const { open, close, isOpen } = useDrawerSidebarContext();
@@ -50,9 +55,13 @@ const AppHeader: React.FC = () => {
       <Link to={getRoute(RouteItem.PROFILE)} style={{ flexShrink: 0, textDecoration: 'none' }}>
         <Space $gap={8} $fitContent>
           <AvatarWrapper>
-            <Avatar src="https://fakeimg.pl/24x24" />
+            {
+              profile?.avatar
+                ? <Avatar src="https://fakeimg.pl/24x24" />
+                : <NoPictureDummy fontSize="20px" />
+            }
           </AvatarWrapper>
-          <Typography.Text>Шевцов Олег Петрович</Typography.Text>
+          <Typography.Text>{profile?.fullName}</Typography.Text>
         </Space>
       </Link>
 

@@ -7,9 +7,6 @@ export abstract class BaseCookiesRepository {
 
   protected set = (key: string, value: string, expDate?: Date | number) => {
     Cookies.set(key, value, {
-      path: this.path,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'Lax',
       expires: expDate ?? 1,
     });
   };

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Result, Spin } from 'antd';
-import styled from 'styled-components';
+import { Result } from 'antd';
 import { AxiosError } from 'axios';
+
+import { Spin } from 'components/atoms/spin/Spin';
 
 interface ComponentWithLoaderProps {
   isLoading: boolean;
@@ -16,7 +17,7 @@ const WithLoader = <T, >(Component: React.FC<any>) => {
     error,
     ...props
   }) => {
-    if (isLoading) return <SpinStyled size="large" />;
+    if (isLoading) return <Spin size="large" />;
 
     if (isError) {
       if (error && error.response) {
@@ -59,12 +60,5 @@ const WithLoader = <T, >(Component: React.FC<any>) => {
 
   return ComponentWithLoader;
 };
-
-const SpinStyled = styled(Spin)`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% -50%);
-`;
 
 export default WithLoader;
