@@ -4,7 +4,7 @@ import React from 'react';
 import { Button, Typography } from 'antd';
 import { Spin as Hamburger } from 'hamburger-react';
 import { colors } from 'theme/colors';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import logo from 'assets/logo.svg';
 
@@ -12,6 +12,8 @@ import { useDrawerSidebarContext } from 'components/organisms/sidebar/drawerSide
 import { Avatar, AvatarWrapper, PageHeaderSpace } from 'components/organisms/appHeader/styled';
 import Space from 'components/atoms/space/Space';
 import { NoPictureDummy } from 'components/atoms/noPictureDummy/NoPictureDummy';
+
+import { tokenRepository } from 'domain/repositories/cookies/TokenRepository';
 
 import { useUserContext } from 'modules/providers/userProvider/context';
 
@@ -22,12 +24,19 @@ import { RouteItem } from 'utils/interfaces/routes';
 
 const AppHeader: React.FC = () => {
   const { profile } = useUserContext();
+  const navigate = useNavigate();
 
   const { windowWidth } = useWindowWidth();
   const { appHeaderHeight } = useAppHeaderHeight();
   const { open, close, isOpen } = useDrawerSidebarContext();
 
   const direction = windowWidth < APP_HEADER_EXPAND_WINDOW_WIDTH ? 'vertical' : 'horizontal';
+
+  const onLogout = () => {
+    tokenRepository.reset();
+
+    navigate(getRoute(RouteItem.BASE));
+  };
 
   return (
     <PageHeaderSpace
@@ -65,7 +74,7 @@ const AppHeader: React.FC = () => {
         </Space>
       </Link>
 
-      <Button>Выйти</Button>
+      <Button onClick={onLogout}>Выйти</Button>
     </PageHeaderSpace>
   );
 };

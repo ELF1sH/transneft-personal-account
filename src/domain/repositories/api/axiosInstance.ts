@@ -16,27 +16,26 @@ const authURLS = ['/auth/login', 'auth/refresh', 'auth/password', 'auth/login/qr
 
 axiosInstance.interceptors.request.use(
   (cfg) => {
-    const config = cfg;
-
-    if (!tokenRepository.getUserId()
+    if (!authURLS.includes(cfg.url ?? '')
+      && (!tokenRepository.getUserId()
       || !tokenRepository.getRefreshToken()
-      || !tokenRepository.getAccessToken()
+      || !tokenRepository.getAccessToken())
     ) {
       router.navigate(getRoute(RouteItem.BASE));
     }
 
-    if (config.url === 'auth/refresh') {
+    if (cfg.url === 'auth/refresh') {
       const refreshToken = tokenRepository.getRefreshToken();
 
-      if (refreshToken) config.headers.Authorization = `Bearer ${refreshToken}`;
+      if (refreshToken) cfg.headers.Authorization = `Bearer ${refreshToken}`;
 
-      return config;
+      return cfg;
     }
 
     const accessToken = tokenRepository.getAccessToken();
-    if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
+    if (accessToken) cfg.headers.Authorization = `Bearer ${accessToken}`;
 
-    return config;
+    return cfg;
   },
   (error) => Promise.reject(error),
 );
