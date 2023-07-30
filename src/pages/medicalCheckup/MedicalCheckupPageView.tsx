@@ -1,5 +1,3 @@
-import { pagination } from 'constants/tables/pagination';
-
 import React from 'react';
 import { Table } from 'antd';
 
@@ -24,16 +22,20 @@ const dataSource: IMedicalCheckup[] = [
   },
 ];
 
-const MedicalCheckupPageView: React.FC = () => {
+export interface MedicalCheckupPageViewProps {
+  medicalCheckups: IMedicalCheckup[];
+}
+
+const MedicalCheckupPageView: React.FC<MedicalCheckupPageViewProps> = ({ medicalCheckups }) => {
   const columns = useColumns();
 
   return (
     <PageContentInnerWrapper>
       <Table
         columns={columns}
-        dataSource={dataSource}
+        dataSource={medicalCheckups}
         bordered
-        pagination={pagination}
+        pagination={false}
         rowKey="id"
         scroll={{ x: 'fit-content' }}
       />

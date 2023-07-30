@@ -2,6 +2,8 @@ import { ColumnsType } from 'antd/es/table';
 
 import { IMedicalCheckup } from 'domain/entities/medicalCheckup';
 
+import { getDate } from 'utils/dateTime/getDate';
+
 export const useColumns = (): ColumnsType<IMedicalCheckup> => [
   {
     title: 'Вид',
@@ -14,11 +16,12 @@ export const useColumns = (): ColumnsType<IMedicalCheckup> => [
     key: 'date',
     dataIndex: 'date',
     align: 'center',
+    render: (_, { date }) => getDate(date),
   },
   {
     title: 'Номер заключения',
-    key: 'number',
-    dataIndex: 'number',
+    key: 'certificate',
+    dataIndex: 'certificate',
     align: 'center',
   },
 ];

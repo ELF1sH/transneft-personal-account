@@ -16,7 +16,6 @@ import WorkingScheduleProvider from 'pages/workingSchedule/WorkingScheduleProvid
 import EducationPage from 'pages/education/EducationPage';
 import WorkingHoursPage from 'pages/workingHours/WorkingHoursPage';
 import InventoryControlPage from 'pages/inventoryControl/InventoryControlPage';
-import MedicalCheckupPageProvider from 'pages/medicalCheckup/MedicalCheckupPageProvider';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
@@ -27,6 +26,7 @@ import { RouteItem } from 'utils/interfaces/routes';
 import UserProvider from './modules/providers/userProvider/UserProvider';
 import ProfilePage from './pages/profile/ProfilePageView';
 import QrPage from './pages/qr/QrPage';
+import MedicalCheckupPageController from './pages/medicalCheckup/MedicalCheckupPageController';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -52,7 +52,7 @@ const App: React.FC = () => {
                         <Route path={getRoute(RouteItem.PROFILE)} element={<ProfilePage />} />
 
                         <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageProvider />} />
-                        <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<MedicalCheckupPageProvider />} />
+                        <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<MedicalCheckupPageController />} />
                         <Route path={getRoute(RouteItem.EDUCATION)} element={<EducationPage />} />
 
                         <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<InventoryControlPage />} />

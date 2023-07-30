@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 import {
+  IGetMedicalCheckupsPayload, IGetMedicalCheckupsResponse,
   IGetPasswordStatusPayload,
   IGetPasswordStatusResponse,
   IGetProfilePayload, IGetProfileResponse, IGetQrCodePayload, IGetQrCodeResponse,
@@ -22,6 +23,10 @@ class UsersRepository implements IUsersRepository {
   public getQrCode = ({ userId }: IGetQrCodePayload) => axiosInstance
     .get(`${this.prefix}/${userId}/qr-code`)
     .then((response: AxiosResponse<IGetQrCodeResponse>) => response.data);
+
+  public getMedicalCheckups = ({ userId }: IGetMedicalCheckupsPayload) => axiosInstance
+    .get(`${this.prefix}/${userId}/examinations`)
+    .then((response: AxiosResponse<IGetMedicalCheckupsResponse>) => response.data);
 }
 
 export const usersRepository = new UsersRepository();
