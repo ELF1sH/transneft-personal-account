@@ -1,4 +1,5 @@
 import { IMedicalCheckup } from 'domain/entities/medicalCheckup';
+import { IEducation } from 'domain/entities/education';
 
 export interface IUsersRepository {
   getPasswordStatus: (payload: IGetPasswordStatusPayload) => Promise<IGetPasswordStatusResponse>;
@@ -8,6 +9,8 @@ export interface IUsersRepository {
   getQrCode: (payload: IGetQrCodePayload) => Promise<IGetQrCodeResponse>;
 
   getMedicalCheckups: (payload: IGetMedicalCheckupsPayload) => Promise<IGetMedicalCheckupsResponse>;
+
+  getEducations: (payload: IGetEducationsPayload) => Promise<IGetEducationsResponse>;
 }
 
 export interface IGetPasswordStatusPayload {
@@ -41,3 +44,8 @@ export interface IGetMedicalCheckupsPayload {
   userId: string;
 }
 export type IGetMedicalCheckupsResponse = IMedicalCheckup[];
+
+export interface IGetEducationsPayload {
+  userId: string;
+}
+export type IGetEducationsResponse = IEducation[];

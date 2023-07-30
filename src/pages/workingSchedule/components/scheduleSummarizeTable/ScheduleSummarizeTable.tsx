@@ -1,6 +1,8 @@
 import React from 'react';
-import { Table, TableProps } from 'antd';
+import { TableProps } from 'antd';
 import styled from 'styled-components';
+
+import Table from 'components/molecules/table/Table';
 
 import { IWorkingScheduleSummarize } from 'domain/entities/workingSchedule';
 
@@ -23,9 +25,7 @@ const ScheduleSummarizeTable: React.FC = () => {
     <TableStyled
       columns={columns}
       dataSource={dataSource}
-      bordered
       rowKey="id"
-      pagination={false}
       scroll={{ x: '700px' }}
     />
   );

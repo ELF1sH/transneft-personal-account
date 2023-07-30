@@ -1,10 +1,8 @@
-import React from 'react';
 import { ColumnsType } from 'antd/es/table';
-import { Typography } from 'antd';
 
 import { IEducation } from 'domain/entities/education';
 
-const { Text } = Typography;
+import { getDate } from 'utils/dateTime/getDate';
 
 export const useColumns = (): ColumnsType<IEducation> => [
   {
@@ -29,8 +27,6 @@ export const useColumns = (): ColumnsType<IEducation> => [
     title: 'Планируемые даты обучения',
     key: 'educationPeriod',
     align: 'center',
-    render: (_, { startDate, endDate }) => (
-      <Text>{`${startDate}–${endDate}`}</Text>
-    ),
+    render: (_, { startDate, endDate }) => `${getDate(startDate)}–${getDate(endDate)}`,
   },
 ];

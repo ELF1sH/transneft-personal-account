@@ -1,8 +1,8 @@
 import React from 'react';
-import { Table } from 'antd';
 
 import { IKeyValueDataSource } from 'components/molecules/keyValueTable/types';
 import { columns } from 'components/molecules/keyValueTable/columns';
+import Table from 'components/molecules/table/Table';
 
 interface KeyValueTableProps {
   dataSource: IKeyValueDataSource[];
@@ -13,7 +13,6 @@ const KeyValueTable: React.FC<KeyValueTableProps> = ({ dataSource }) => (
     showHeader={false}
     dataSource={dataSource}
     columns={columns}
-    bordered
     pagination={false}
   />
 );

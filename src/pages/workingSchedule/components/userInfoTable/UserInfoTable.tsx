@@ -1,5 +1,6 @@
 import React from 'react';
-import { Table } from 'antd';
+
+import Table from 'components/molecules/table/Table';
 
 import { IWorkingScheduleUserInfo } from 'domain/entities/workingSchedule';
 
@@ -23,8 +24,6 @@ const UserInfoTable: React.FC = () => {
     <Table
       columns={columns}
       dataSource={dataSource}
-      pagination={false}
-      bordered
       rowKey="id"
       scroll={{ x: '700px' }}
     />

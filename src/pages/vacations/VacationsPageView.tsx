@@ -1,9 +1,9 @@
 import { pagination } from 'constants/tables/pagination';
 
 import React from 'react';
-import { Table } from 'antd';
 
 import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper/PageContentInnerWrapper';
+import Table from 'components/molecules/table/Table';
 
 import { IVacation } from 'domain/entities/vacation';
 
@@ -38,7 +38,6 @@ const VacationsPageView: React.FC = () => {
       <Table
         columns={columns}
         dataSource={dataSource}
-        bordered
         pagination={pagination}
         rowKey="date"
         scroll={{ x: 'fit-content' }}

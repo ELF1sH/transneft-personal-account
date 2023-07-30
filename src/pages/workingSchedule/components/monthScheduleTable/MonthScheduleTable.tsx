@@ -1,6 +1,7 @@
 import React from 'react';
-import { Table } from 'antd';
 import styled from 'styled-components';
+
+import Table from 'components/molecules/table/Table';
 
 import { useColumns } from './hooks/useColumns';
 
@@ -26,8 +27,6 @@ const MonthScheduleTable: React.FC = () => {
       dataSource={[presenceObj, nightObj]}
       columns={columns}
       rowKey="date"
-      bordered
-      pagination={false}
       scroll={{ x: '700px' }}
     />
   );

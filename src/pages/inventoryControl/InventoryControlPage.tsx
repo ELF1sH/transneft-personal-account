@@ -1,9 +1,9 @@
 import { pagination } from 'constants/tables/pagination';
 
 import React from 'react';
-import { Table } from 'antd';
 
 import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper/PageContentInnerWrapper';
+import Table from 'components/molecules/table/Table';
 
 import { IInventoryControlItem } from 'domain/entities/inventoryControlItem';
 
@@ -26,7 +26,6 @@ const InventoryControlPage: React.FC = () => {
       <Table
         columns={columns}
         dataSource={dataSource}
-        bordered
         pagination={pagination}
         rowKey="height"
         scroll={{ x: 'fit-content' }}

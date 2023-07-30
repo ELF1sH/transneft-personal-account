@@ -13,7 +13,6 @@ import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapp
 
 import AuthPage from 'pages/auth/AuthPage';
 import WorkingScheduleProvider from 'pages/workingSchedule/WorkingScheduleProvider';
-import EducationPage from 'pages/education/EducationPage';
 import WorkingHoursPage from 'pages/workingHours/WorkingHoursPage';
 import InventoryControlPage from 'pages/inventoryControl/InventoryControlPage';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
@@ -27,6 +26,7 @@ import UserProvider from './modules/providers/userProvider/UserProvider';
 import ProfilePage from './pages/profile/ProfilePageView';
 import QrPage from './pages/qr/QrPage';
 import MedicalCheckupPageController from './pages/medicalCheckup/MedicalCheckupPageController';
+import EducationPageController from './pages/education/EducationPageController';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -53,7 +53,7 @@ const App: React.FC = () => {
 
                         <Route path={getRoute(RouteItem.VACATIONS)} element={<VacationsPageProvider />} />
                         <Route path={getRoute(RouteItem.MEDICAL_CHECKUP)} element={<MedicalCheckupPageController />} />
-                        <Route path={getRoute(RouteItem.EDUCATION)} element={<EducationPage />} />
+                        <Route path={getRoute(RouteItem.EDUCATION)} element={<EducationPageController />} />
 
                         <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<InventoryControlPage />} />
 

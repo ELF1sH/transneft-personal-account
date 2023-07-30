@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 import {
+  IGetEducationsPayload, IGetEducationsResponse,
   IGetMedicalCheckupsPayload, IGetMedicalCheckupsResponse,
   IGetPasswordStatusPayload,
   IGetPasswordStatusResponse,
@@ -27,6 +28,10 @@ class UsersRepository implements IUsersRepository {
   public getMedicalCheckups = ({ userId }: IGetMedicalCheckupsPayload) => axiosInstance
     .get(`${this.prefix}/${userId}/examinations`)
     .then((response: AxiosResponse<IGetMedicalCheckupsResponse>) => response.data);
+
+  public getEducations = ({ userId }: IGetEducationsPayload) => axiosInstance
+    .get(`${this.prefix}/${userId}/educations`)
+    .then((response: AxiosResponse<IGetEducationsResponse>) => response.data);
 }
 
 export const usersRepository = new UsersRepository();

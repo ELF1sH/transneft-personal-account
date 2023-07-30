@@ -1,9 +1,7 @@
-import { pagination } from 'constants/tables/pagination';
-
 import React from 'react';
-import { Table } from 'antd';
 
 import PageContentInnerWrapper from 'components/wrappers/pageContentInnerWrapper/PageContentInnerWrapper';
+import Table from 'components/molecules/table/Table';
 
 import { IEducation } from 'domain/entities/education';
 
@@ -28,16 +26,18 @@ const dataSource: IEducation[] = [
   },
 ];
 
-const EducationPage: React.FC = () => {
+export interface EducationPageViewProps {
+  educations: IEducation[];
+}
+
+const EducationPageView: React.FC<EducationPageViewProps> = ({ educations }) => {
   const columns = useColumns();
 
   return (
     <PageContentInnerWrapper>
       <Table
         columns={columns}
-        dataSource={dataSource}
-        bordered
-        pagination={pagination}
+        dataSource={educations}
         rowKey="id"
         scroll={{ x: 'fit-content' }}
       />
@@ -45,4 +45,4 @@ const EducationPage: React.FC = () => {
   );
 };
 
-export default EducationPage;
+export default EducationPageView;
