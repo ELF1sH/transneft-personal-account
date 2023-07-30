@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,17 +17,20 @@ const UserProvider: React.FC<IChildren> = ({ children }) => {
   const userId = tokenRepository.getUserId();
   const navigate = useNavigate();
 
-  if (!userId) navigate(getRoute(RouteItem.BASE));
-
   const { data, isLoading } = useQuery({
     queryKey: ['profile'],
     queryFn: () => usersRepository.getProfile({ userId: userId! }),
+    enabled: !!userId,
   });
 
   const contextValue = useMemo<IUserContextValue>(
     () => ({ profile: data }),
     [data, isLoading],
   );
+
+  useEffect(() => {
+    if (!userId) navigate(getRoute(RouteItem.BASE));
+  }, []);
 
   if (isLoading) return <Spin size="large" />;
 
