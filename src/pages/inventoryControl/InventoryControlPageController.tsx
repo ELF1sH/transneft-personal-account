@@ -14,8 +14,6 @@ const ViewWithLoader = WithLoader<InventoryControlPageViewProps>(InventoryContro
 const InventoryControlPageController: React.FC = () => {
   const userId = tokenRepository.getUserId();
 
-  console.log(userId);
-
   const {
     data, isLoading, isError, error,
   } = useQuery(['measures'], {

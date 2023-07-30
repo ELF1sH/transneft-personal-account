@@ -13,7 +13,6 @@ import PageContent from 'components/wrappers/pageContentWrapper/PageContentWrapp
 
 import AuthPage from 'pages/auth/AuthPage';
 import WorkingScheduleProvider from 'pages/workingSchedule/WorkingScheduleProvider';
-import WorkingHoursPage from 'pages/workingHours/WorkingHoursPage';
 import VacationsPageProvider from 'pages/vacations/VacationsPageProvider';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
 
@@ -27,6 +26,7 @@ import QrPage from './pages/qr/QrPage';
 import MedicalCheckupPageController from './pages/medicalCheckup/MedicalCheckupPageController';
 import EducationPageController from './pages/education/EducationPageController';
 import InventoryControlPageController from './pages/inventoryControl/InventoryControlPageController';
+import WorkingHoursPageController from './pages/workingHours/WorkingHoursPageController';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -57,7 +57,7 @@ const App: React.FC = () => {
 
                         <Route path={getRoute(RouteItem.INVENTORY_CONTROL)} element={<InventoryControlPageController />} />
 
-                        <Route path={getRoute(RouteItem.WORKING_HOURS)} element={<WorkingHoursPage />} />
+                        <Route path={getRoute(RouteItem.WORKING_HOURS)} element={<WorkingHoursPageController />} />
                         <Route path={getRoute(RouteItem.WORKING_SCHEDULE)} element={<WorkingScheduleProvider />} />
 
                         <Route path={getRoute(RouteItem.REDUCED_FARE)} element={<h1>Льготный проезд</h1>} />
