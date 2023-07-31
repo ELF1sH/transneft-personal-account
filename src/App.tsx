@@ -27,6 +27,7 @@ import InventoryControlPageController from './pages/inventoryControl/InventoryCo
 import WorkingHoursPageController from './pages/workingHours/WorkingHoursPageController';
 import WorkingScheduleController from './pages/workingSchedule/WorkingScheduleController';
 import VacationsPageController from './pages/vacations/VacationsPageController';
+import PhonebookPage from './pages/phonebook/PhonebookPage';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -43,9 +44,9 @@ const App: React.FC = () => {
               <UserProvider>
                 <DrawerSidebar />
                 <AppHeader />
-                <Layout style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)`, background: colors.COLOR_BG_PRIMARY }}>
+                <Layout style={{ minHeight: `calc(100vh - ${appHeaderHeight + 3}px)`, background: colors.COLOR_BG_PRIMARY }}>
                   <Sidebar />
-                  <Space $direction="vertical" style={{ minHeight: `calc(100vh - ${appHeaderHeight}px)` }}>
+                  <Space $direction="vertical" style={{ minHeight: `calc(100vh - ${appHeaderHeight + 3}px)` }}>
                     <PageHeader />
                     <PageContent>
                       <Routes>
@@ -71,7 +72,7 @@ const App: React.FC = () => {
                         <Route path={getRoute(RouteItem.ENQUIRY)} element={<h1>Справка</h1>} />
                         <Route path={getRoute(RouteItem.WORK_BOOK_COPY)} element={<h1>Копия</h1>} />
 
-                        <Route path={getRoute(RouteItem.PHONEBOOK)} element={<h1>Телефон</h1>} />
+                        <Route path={getRoute(RouteItem.PHONEBOOK)} element={<PhonebookPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                       </Routes>
                     </PageContent>

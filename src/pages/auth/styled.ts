@@ -4,7 +4,7 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 export const AuthPageWrapper = styled.div<ThemeProps<DefaultTheme>>`
   ${({ theme }) => css`
     background-color: ${theme.colorBgLight};
-    height: 100vh;
+    height: calc(100vh - 3px);
   `};
 `;
 
