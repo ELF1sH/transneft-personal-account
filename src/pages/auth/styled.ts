@@ -1,5 +1,6 @@
 // @ts-ignore
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { Button } from 'antd';
 
 export const AuthPageWrapper = styled.div<ThemeProps<DefaultTheme>>`
   ${({ theme }) => css`
@@ -31,4 +32,10 @@ export const FormWrapper = styled.div<ThemeProps<DefaultTheme>>`
       margin-bottom: 0 !important;
     }
   `};
+`;
+
+export const GoBackButton = styled(Button)`
+  position: absolute;
+  top: 20px;
+  left: 20px;
 `;

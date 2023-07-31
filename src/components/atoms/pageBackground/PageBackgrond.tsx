@@ -10,7 +10,7 @@ export const PageBackground = styled.div`
 
   display: block;
   width: 856px;
-  height: 552px;
+  height: min(552px, 100%);
 
   position: fixed;
   right: 0;

@@ -56,12 +56,17 @@ const AppHeader: React.FC = () => {
             />
           )
         }
-        <Link to={getRoute(RouteItem.PROFILE)}>
+        <Link to={getRoute(RouteItem.PROFILE)} onClick={close}>
           <img src={logo} alt="logo" draggable={false} />
         </Link>
       </Space>
 
-      <Link to={getRoute(RouteItem.PROFILE)} style={{ flexShrink: 0, textDecoration: 'none', marginRight: '12px' }}>
+      <Link
+        to={getRoute(RouteItem.PROFILE)}
+        style={{
+          flexShrink: 0, textDecoration: 'none', marginRight: '12px', position: 'relative', zIndex: 1,
+        }}
+      >
         <Space $gap={8} $fitContent>
           <AvatarWrapper>
             {
@@ -74,7 +79,7 @@ const AppHeader: React.FC = () => {
         </Space>
       </Link>
 
-      <Button onClick={onLogout}>Выйти</Button>
+      <Button onClick={onLogout} style={{ position: 'relative', zIndex: 1 }}>Выйти</Button>
     </PageHeaderSpace>
   );
 };

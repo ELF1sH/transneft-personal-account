@@ -3,6 +3,8 @@ export enum DateFormat {
 }
 
 export const getDate = (stringDate: string, dateFormat = DateFormat.DD_MM_YYYY): string => {
+  if (stringDate.endsWith('Z')) stringDate = stringDate.slice(0, -1);
+
   const date = new Date(stringDate);
 
   if (dateFormat === DateFormat.DD_MM_YYYY) {

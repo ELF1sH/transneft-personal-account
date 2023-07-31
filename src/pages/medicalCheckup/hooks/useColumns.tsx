@@ -3,6 +3,7 @@ import { ColumnsType } from 'antd/es/table';
 import { IMedicalCheckup } from 'domain/entities/medicalCheckup';
 
 import { getDate } from 'utils/dateTime/getDate';
+import { parseMedicalCheckupType } from 'utils/parsers/parseMedicalCheckupType';
 
 export const useColumns = (): ColumnsType<IMedicalCheckup> => [
   {
@@ -10,13 +11,14 @@ export const useColumns = (): ColumnsType<IMedicalCheckup> => [
     key: 'type',
     dataIndex: 'type',
     align: 'center',
+    render: (type) => parseMedicalCheckupType(type),
   },
   {
     title: 'Дата прохождения',
     key: 'date',
     dataIndex: 'date',
     align: 'center',
-    render: (_, { date }) => getDate(date),
+    render: (date) => getDate(date),
   },
   {
     title: 'Номер заключения',

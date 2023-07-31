@@ -3,16 +3,22 @@ import React from 'react';
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { Typography } from 'antd';
 
-const Debt: React.FC = () => (
-  <div>
-    <TitleWrapper>
-      <Typography.Text>Дебиторская задолженность</Typography.Text>
-    </TitleWrapper>
-    <ValueWrapper>
-      <Typography.Text>14 870,34</Typography.Text>
-    </ValueWrapper>
-  </div>
-);
+import { useUserContext } from 'modules/providers/userProvider/context';
+
+const Debt: React.FC = () => {
+  const { profile } = useUserContext();
+
+  return (
+    <div>
+      <TitleWrapper>
+        <Typography.Text>Дебиторская задолженность</Typography.Text>
+      </TitleWrapper>
+      <ValueWrapper>
+        <Typography.Text>{`${profile?.debt}₽`}</Typography.Text>
+      </ValueWrapper>
+    </div>
+  );
+};
 
 const TitleWrapper = styled.div<ThemeProps<DefaultTheme>>`
   ${({ theme }) => css`

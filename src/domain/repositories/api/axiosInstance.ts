@@ -13,11 +13,11 @@ export const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
-const authURLS = ['auth/login', 'auth/refresh', 'auth/password', 'auth/login/qr-code'];
+const authURLS = [/auth\/login/, /auth\/refresh/, /auth\/password/, /auth\/login\/qr-code/, /^users\/[0-9]+$/];
 
 axiosInstance.interceptors.request.use(
   (cfg) => {
-    if (!authURLS.includes(cfg.url ?? '') && !tokenRepository.getRefreshToken()) {
+    if (!authURLS.some((regex) => regex.test(cfg.url!)) && !tokenRepository.getRefreshToken()) {
       tokenRepository.reset();
       router.navigate(getRoute(RouteItem.BASE));
     }
@@ -46,7 +46,7 @@ axiosInstance.interceptors.response.use(
     const originalRequest = error.config;
 
     if (error.response?.status === 401
-      && !authURLS.includes(originalRequest.url)
+      && !authURLS.some((regex) => regex.test(originalRequest.url))
       && !originalRequest._retry
     ) {
       if (!promiseOfGettingNewRefreshToken) {

@@ -41,6 +41,7 @@ export interface IGetProfileResponse {
   division: string;
   position: string;
   avatar: null;
+  debt: number;
 }
 
 export interface IGetQrCodePayload {

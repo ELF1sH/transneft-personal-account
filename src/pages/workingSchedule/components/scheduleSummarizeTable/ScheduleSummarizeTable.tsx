@@ -26,17 +26,17 @@ const ScheduleSummarizeTable: React.FC = () => {
   const { schedule } = useWorkingScheduleContext();
 
   const row: SummarizeTableRow = {
-    differenceMonth: schedule!.monthlyStatistics.difference,
-    holidayHoursMonth: schedule!.monthlyStatistics.holidayHours,
-    nightHoursMonth: schedule!.monthlyStatistics.nightHours,
-    totalHoursMonth: schedule!.monthlyStatistics.totalHours,
-    workedHoursMonth: schedule!.monthlyStatistics.workedHours,
+    differenceMonth: schedule?.monthlyStatistics.difference ?? 0,
+    holidayHoursMonth: schedule?.monthlyStatistics.holidayHours ?? 0,
+    nightHoursMonth: schedule?.monthlyStatistics.nightHours ?? 0,
+    totalHoursMonth: schedule?.monthlyStatistics.totalHours ?? 0,
+    workedHoursMonth: schedule?.monthlyStatistics.workedHours ?? 0,
 
-    differenceYear: schedule!.yearlyStatistics.difference,
-    holidayHoursYear: schedule!.yearlyStatistics.holidayHours,
-    nightHoursYear: schedule!.yearlyStatistics.nightHours,
-    totalHoursYear: schedule!.yearlyStatistics.totalHours,
-    workedHoursYear: schedule!.yearlyStatistics.workedHours,
+    differenceYear: schedule?.yearlyStatistics.difference ?? 0,
+    holidayHoursYear: schedule?.yearlyStatistics.holidayHours ?? 0,
+    nightHoursYear: schedule?.yearlyStatistics.nightHours ?? 0,
+    totalHoursYear: schedule?.yearlyStatistics.totalHours ?? 0,
+    workedHoursYear: schedule?.yearlyStatistics.workedHours ?? 0,
   };
 
   return (

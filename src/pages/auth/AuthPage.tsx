@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Typography } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 import logo from 'assets/logo.svg';
 
 import { PageBackground } from 'components/atoms/pageBackground/PageBackgrond';
 
-import { AuthPageWrapper, FormWrapper } from './styled';
+import { AuthPageWrapper, FormWrapper, GoBackButton } from './styled';
 import FormPersonnelNumberStep from './components/FormPersonnelNumberStep/FormPersonnelNumberStep';
 import FormPasswordStep from './components/FormPasswordStep/FormPasswordStep';
 import { AuthStep } from './interfaces';
@@ -20,6 +21,11 @@ const AuthPage: React.FC = () => {
     <AuthPageWrapper>
       <PageBackground />
       <FormWrapper>
+        {
+          (currentStep === AuthStep.PASSWORD || currentStep === AuthStep.SET_PASSWORD) && (
+            <GoBackButton icon={<ArrowLeftOutlined />} shape="round" onClick={() => setCurrentStep(AuthStep.PERSONNEL_NUMBER)} />
+          )
+        }
         <img src={logo} alt="logo" draggable={false} />
         <Title level={4}>Вход в личный кабинет</Title>
         {
@@ -27,7 +33,7 @@ const AuthPage: React.FC = () => {
             ? <FormPersonnelNumberStep setCurrentStep={setCurrentStep} />
             : currentStep === AuthStep.SET_PASSWORD
               ? <FormSetPasswordStep />
-              : <FormPasswordStep />
+              : <FormPasswordStep setCurrentStep={setCurrentStep} />
         }
       </FormWrapper>
     </AuthPageWrapper>

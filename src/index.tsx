@@ -22,6 +22,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
+      refetchOnReconnect: false,
     },
     mutations: {
       retry: 1,

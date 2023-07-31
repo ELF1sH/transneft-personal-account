@@ -5,7 +5,7 @@ const PageContentInnerWrapper = styled.div`
   border-radius: 2px;
   padding: 20px 24px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 1100px) {
     padding: 5px 6px;
   }
 

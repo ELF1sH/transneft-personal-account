@@ -12,6 +12,8 @@ import Space from 'components/atoms/space/Space';
 import { tokenRepository } from 'domain/repositories/cookies/TokenRepository';
 import { authRepository } from 'domain/repositories/api/AuthRepository';
 
+import { AuthStep } from 'pages/auth/interfaces';
+
 import { RouteItem } from 'utils/interfaces/routes';
 import { getRoute } from 'utils/routes/getRoute';
 
@@ -19,7 +21,11 @@ import { IFormState } from './interfaces';
 
 const { Paragraph } = Typography;
 
-const FormPasswordStep: React.FC = () => {
+interface FormPasswordStepProps {
+  setCurrentStep: (step: AuthStep) => void;
+}
+
+const FormPasswordStep: React.FC<FormPasswordStepProps> = ({ setCurrentStep }) => {
   const employeeId = tokenRepository.getEmployeeId();
   const navigate = useNavigate();
   const [form] = useForm();
