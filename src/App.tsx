@@ -28,6 +28,8 @@ import WorkingHoursPageController from './pages/workingHours/WorkingHoursPageCon
 import WorkingScheduleController from './pages/workingSchedule/WorkingScheduleController';
 import VacationsPageController from './pages/vacations/VacationsPageController';
 import PhonebookPage from './pages/phonebook/PhonebookPage';
+import KindergartenPage from './pages/kindergarten/KindergartenPage';
+import VacationApplicationsPage from './pages/vacationApplications/VacationApplicationsPage';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -66,9 +68,9 @@ const App: React.FC = () => {
                         <Route path={getRoute(RouteItem.BIRTH_PENSION)} element={<h1>Пособие</h1>} />
                         <Route path={getRoute(RouteItem.TAX_DEDUCTION)} element={<h1>Налоговый вычет</h1>} />
                         <Route path={getRoute(RouteItem.RENTAL)} element={<h1>Аренда жилья</h1>} />
-                        <Route path={getRoute(RouteItem.KINDERGARTEN)} element={<h1>Детский сад</h1>} />
+                        <Route path={getRoute(RouteItem.KINDERGARTEN)} element={<KindergartenPage />} />
                         <Route path={getRoute(RouteItem.SANATORIUM)} element={<h1>Санаторий</h1>} />
-                        <Route path={getRoute(RouteItem.VACATION_APPLICATIONS)} element={<h1>Заявление</h1>} />
+                        <Route path={getRoute(RouteItem.VACATION_APPLICATIONS)} element={<VacationApplicationsPage />} />
                         <Route path={getRoute(RouteItem.ENQUIRY)} element={<h1>Справка</h1>} />
                         <Route path={getRoute(RouteItem.WORK_BOOK_COPY)} element={<h1>Копия</h1>} />
 

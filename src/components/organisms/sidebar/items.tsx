@@ -1,14 +1,33 @@
+import { downloadLinks } from 'constants/routes';
+
 import React from 'react';
 import { MenuProps } from 'antd';
 import { Link } from 'react-router-dom';
+import { DownloadOutlined } from '@ant-design/icons';
 
 import { getRouteItemLabel } from 'utils/routes/getRouteLabels';
 import { RouteItem } from 'utils/interfaces/routes';
 import { getRoute } from 'utils/routes/getRoute';
 
-const getChildren = (routeItems: RouteItem[]) => routeItems.map((item) => ({
+const getChildren = (routeItems: RouteItem[]): MenuProps['items'] => routeItems.map((item) => ({
   key: item,
-  label: <Link to={getRoute(item)}>{getRouteItemLabel(item)}</Link>,
+  label: (
+    <Link to={getRoute(item)}>
+      {getRouteItemLabel(item)}
+      {
+        Object.keys(downloadLinks).includes(item)
+          ? (
+            <span style={{ whiteSpace: 'nowrap' }}>
+              &nbsp;
+              (
+              <DownloadOutlined />
+              )
+            </span>
+          )
+          : null
+      }
+    </Link>
+  ),
 }));
 
 export const items: MenuProps['items'] = [
@@ -21,7 +40,7 @@ export const items: MenuProps['items'] = [
       RouteItem.EDUCATION,
     ]),
   },
-  ...getChildren([RouteItem.INVENTORY_CONTROL]),
+  ...getChildren([RouteItem.INVENTORY_CONTROL])!,
   {
     key: 'laborOrganisation',
     label: 'Организация труда',
@@ -46,5 +65,5 @@ export const items: MenuProps['items'] = [
       RouteItem.WORK_BOOK_COPY,
     ]),
   },
-  ...getChildren([RouteItem.PHONEBOOK]),
+  ...getChildren([RouteItem.PHONEBOOK])!,
 ];

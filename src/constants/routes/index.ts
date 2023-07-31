@@ -27,3 +27,12 @@ export const routePaths: Record<RouteItem, (RouteItem | RouteSection)[]> = {
 
   [RouteItem.PHONEBOOK]: [RouteItem.PROFILE],
 };
+
+export const downloadLinks: Partial<Record<RouteItem, string>> = {
+  [RouteItem.REDUCED_FARE]: 'http://files.lk-transneft.ru/downloadFile?id=KDc6JZ4hzX9YwnJ',
+  [RouteItem.INCOME_TAX]: 'http://files.lk-transneft.ru/downloadFile?id=C5VorF91kgcyYHQ',
+  [RouteItem.BIRTH_PENSION]: 'http://files.lk-transneft.ru/downloadFile?id=NWmTRvmN0bljGJm',
+  [RouteItem.RENTAL]: 'http://files.lk-transneft.ru/downloadFile?id=PTpUWJfjfuo9NiO',
+  [RouteItem.ENQUIRY]: 'http://files.lk-transneft.ru/downloadFile?id=AHmv7lAzT3Pvip6',
+  [RouteItem.WORK_BOOK_COPY]: 'http://files.lk-transneft.ru/downloadFile?id=zOUZmErzyA3sbdj',
+};
