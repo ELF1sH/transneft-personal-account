@@ -46,9 +46,9 @@ const App: React.FC = () => {
               <UserProvider>
                 <DrawerSidebar />
                 <AppHeader />
-                <Layout style={{ minHeight: `calc(100vh - ${appHeaderHeight + 3}px)`, background: colors.COLOR_BG_PRIMARY }}>
+                <Layout style={{ minHeight: `calc(100dvh - ${appHeaderHeight + 3}px)`, background: colors.COLOR_BG_PRIMARY }}>
                   <Sidebar />
-                  <Space $direction="vertical" style={{ minHeight: `calc(100vh - ${appHeaderHeight + 3}px)` }}>
+                  <Space $direction="vertical" style={{ minHeight: `calc(100dvh - ${appHeaderHeight + 3}px)` }}>
                     <PageHeader />
                     <PageContent>
                       <Routes>

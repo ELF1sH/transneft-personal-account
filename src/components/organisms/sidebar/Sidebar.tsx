@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ insideDrawer = false }) => {
         mode="inline"
         items={items}
         selectedKeys={[selectedRouteItem]}
-        style={{ minHeight: `calc(100vh - ${appHeaderHeight}}px)`, zIndex: 2 }}
+        style={{ minHeight: `calc(100dvh - ${appHeaderHeight}}px)`, zIndex: 2 }}
         onSelect={() => close()}
       />
     </Sider>

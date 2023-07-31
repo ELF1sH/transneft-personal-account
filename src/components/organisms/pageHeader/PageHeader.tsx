@@ -13,7 +13,7 @@ const PageHeader: React.FC = () => {
   return (
     <PageHeaderSpace $padding="16px 24px" $direction="vertical" $gap={8} id="page-header">
       <Breadcrumb items={getBreadcrumbsItems(pathname)} />
-      <Typography.Title level={3}>{getHeaderTitle(pathname)}</Typography.Title>
+      <Typography.Title level={3} style={{ position: 'relative', zIndex: 1 }}>{getHeaderTitle(pathname)}</Typography.Title>
     </PageHeaderSpace>
   );
 };

@@ -22,7 +22,7 @@ const Breadcrumb: React.FC<MyBreadcrumbProps> = ({
   items,
 }) => (
   <AntdBreadcrumb
-    style={{ marginBottom: '20px' }}
+    style={{ marginBottom: '20px', position: 'relative', zIndex: 1 }}
     items={items.map((item) => ({
       title: <Tooltip title={item.tooltip}><div>{getBreadcrumbItemReactNode(item)}</div></Tooltip>,
     }))}

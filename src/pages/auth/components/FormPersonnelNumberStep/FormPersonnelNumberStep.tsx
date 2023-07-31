@@ -38,12 +38,16 @@ const FormPersonnelNumberStep: React.FC<FormPersonnelNumberStepProps> = ({ setCu
   });
 
   return (
-    <Form<IFormState> form={form} onFinish={(values) => mutate(values)}>
+    <Form<IFormState>
+      form={form}
+      onFinish={(values) => mutate(values)}
+      initialValues={{ employeeId: tokenRepository.getEmployeeId() }}
+    >
       <Space $direction="vertical" $gap={16}>
         <Paragraph type="secondary" style={{ textAlign: 'center' }}>Введите табельный номер для продолжения входа в личный кабинет.</Paragraph>
 
         <Form.Item name="employeeId" rules={[{ required: true, message: 'Не указан табельный номер' }]}>
-          <Input placeholder="Табельный номер" size="large" />
+          <Input placeholder="Табельный номер" size="large" autoFocus />
         </Form.Item>
 
         <Button loading={isLoading} htmlType="submit" type="primary" size="large" block>Продолжить</Button>

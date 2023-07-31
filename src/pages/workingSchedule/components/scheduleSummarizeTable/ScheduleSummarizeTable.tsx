@@ -51,11 +51,7 @@ const ScheduleSummarizeTable: React.FC = () => {
 
 const TableStyled = styled(Table)`
   .ant-table-cell {
-    padding: 16px 2px !important;
-    
-    @media (max-width: 1200px) {
-      padding: 16px 0 !important;
-    }
+    padding: 16px 4px !important;
   }
 `;
 

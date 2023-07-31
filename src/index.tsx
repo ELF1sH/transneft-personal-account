@@ -23,6 +23,7 @@ const queryClient = new QueryClient({
     queries: {
       retry: 1,
       refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
     },
     mutations: {
       retry: 1,

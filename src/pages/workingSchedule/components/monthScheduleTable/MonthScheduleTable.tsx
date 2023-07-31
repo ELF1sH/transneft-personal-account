@@ -25,7 +25,7 @@ const MonthScheduleTable: React.FC = () => {
 
 const TableStyled = styled(Table)`
   .ant-table-cell {
-    padding: 16px 2px !important;
+    padding: 16px 4px !important;
   }
 `;
 

@@ -14,7 +14,7 @@ const Debt: React.FC = () => {
         <Typography.Text>Дебиторская задолженность</Typography.Text>
       </TitleWrapper>
       <ValueWrapper>
-        <Typography.Text>{`${profile?.debt ? profile.debt / 100 : 0}₽`}</Typography.Text>
+        <Typography.Text>{`${profile?.debt ? profile.debt / 100 : 0} ₽`}</Typography.Text>
       </ValueWrapper>
     </div>
   );

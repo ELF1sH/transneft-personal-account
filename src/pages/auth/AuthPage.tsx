@@ -23,7 +23,11 @@ const AuthPage: React.FC = () => {
       <FormWrapper>
         {
           (currentStep === AuthStep.PASSWORD || currentStep === AuthStep.SET_PASSWORD) && (
-            <GoBackButton icon={<ArrowLeftOutlined />} shape="round" onClick={() => setCurrentStep(AuthStep.PERSONNEL_NUMBER)} />
+            <GoBackButton
+              icon={<ArrowLeftOutlined style={{ transform: 'translateX(8px)' }} />}
+              shape="circle"
+              onClick={() => setCurrentStep(AuthStep.PERSONNEL_NUMBER)}
+            />
           )
         }
         <img src={logo} alt="logo" draggable={false} />

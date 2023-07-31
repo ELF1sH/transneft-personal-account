@@ -51,7 +51,7 @@ const FormSetPasswordStep: React.FC = () => {
             { min: 8, message: 'Минимум 8 символов' },
           ]}
         >
-          <Input.Password placeholder="Пароль" size="large" />
+          <Input.Password placeholder="Пароль" size="large" autoFocus />
         </Form.Item>
 
         <Form.Item

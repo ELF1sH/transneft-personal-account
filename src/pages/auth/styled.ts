@@ -5,7 +5,7 @@ import { Button } from 'antd';
 export const AuthPageWrapper = styled.div<ThemeProps<DefaultTheme>>`
   ${({ theme }) => css`
     background-color: ${theme.colorBgLight};
-    height: calc(100vh - 3px);
+    height: calc(100dvh);
   `};
 `;
 

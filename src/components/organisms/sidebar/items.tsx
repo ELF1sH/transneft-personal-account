@@ -12,7 +12,7 @@ import { getRoute } from 'utils/routes/getRoute';
 const getChildren = (routeItems: RouteItem[]): MenuProps['items'] => routeItems.map((item) => ({
   key: item,
   label: (
-    <Link to={getRoute(item)}>
+    <Link to={getRoute(item)} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
       {getRouteItemLabel(item)}
       {
         Object.keys(downloadLinks).includes(item)
