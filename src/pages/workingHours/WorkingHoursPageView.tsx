@@ -17,7 +17,7 @@ const WorkingHoursPageView: React.FC<WorkingHoursPageViewProps> = ({ shifts }) =
       <ol>
         {
           shifts.map(({ id, description }) => (
-            <li key={id}>{description}</li>
+            <li key={id} style={{ whiteSpace: 'pre-wrap' }}>{description}</li>
           ))
         }
       </ol>
