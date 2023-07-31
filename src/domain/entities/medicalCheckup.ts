@@ -7,5 +7,5 @@ export interface IMedicalCheckup {
 
 export enum MedicalCheckupType {
   MEDICAL = 'MEDICAL',
-  PSYCHIATRIC = 'PSYCHIATRIC ',
+  PSYCHIATRIC = 'PSYCHIATRIC',
 }
