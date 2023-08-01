@@ -13,8 +13,6 @@ const MonthScheduleTable: React.FC = () => {
 
   const columns = useColumns(schedule?.days ?? []);
 
-  console.log(getDataSourceBySchedule(schedule?.days ?? []));
-
   return (
     <TableStyled
       dataSource={getDataSourceBySchedule(schedule?.days ?? [])}
