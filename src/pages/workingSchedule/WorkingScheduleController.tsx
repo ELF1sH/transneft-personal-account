@@ -25,6 +25,7 @@ const WorkingScheduleController: React.FC = () => {
     queryFn: () => usersRepository.getSchedule({ userId: userId!, month: currentTab }),
     staleTime: Infinity,
     cacheTime: Infinity,
+    select: (data) => ({ ...data, days: data.days.sort((a, b) => (a.date < b.date ? -1 : 1)) }),
   });
 
   useEffect(() => { refetch(); }, [currentTab]);
