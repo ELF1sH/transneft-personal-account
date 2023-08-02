@@ -1,5 +1,3 @@
-import { APP_HEADER_HEIGHT } from 'constants/layout';
-
 import React from 'react';
 import { Drawer } from 'antd';
 import { colors } from 'theme/colors';
@@ -8,6 +6,8 @@ import Sidebar from 'components/organisms/sidebar/Sidebar';
 import {
   useDrawerSidebarContext,
 } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
+
+import { APP_HEADER_HEIGHT } from 'constants/layout';
 
 const DrawerSidebar: React.FC = () => {
   const { isOpen, close } = useDrawerSidebarContext();

@@ -24,8 +24,9 @@ const AuthPage: React.FC = () => {
         {
           (currentStep === AuthStep.PASSWORD || currentStep === AuthStep.SET_PASSWORD) && (
             <GoBackButton
-              icon={<ArrowLeftOutlined style={{ transform: 'translateX(8px)' }} />}
+              icon={<ArrowLeftOutlined />}
               shape="circle"
+              type="default"
               onClick={() => setCurrentStep(AuthStep.PERSONNEL_NUMBER)}
             />
           )

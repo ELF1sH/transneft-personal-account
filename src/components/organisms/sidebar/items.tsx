@@ -1,9 +1,9 @@
-import { downloadLinks } from 'constants/routes';
-
 import React from 'react';
 import { MenuProps } from 'antd';
 import { Link } from 'react-router-dom';
 import { DownloadOutlined } from '@ant-design/icons';
+
+import { downloadLinks } from 'constants/routes';
 
 import { getRouteItemLabel } from 'utils/routes/getRouteLabels';
 import { RouteItem } from 'utils/interfaces/routes';

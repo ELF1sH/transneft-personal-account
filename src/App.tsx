@@ -30,6 +30,7 @@ import VacationsPageController from './pages/vacations/VacationsPageController';
 import PhonebookPage from './pages/phonebook/PhonebookPage';
 import KindergartenPage from './pages/kindergarten/KindergartenPage';
 import VacationApplicationsPage from './pages/vacationApplications/VacationApplicationsPage';
+import DocumentPage from './pages/document/DocumentPage';
 
 const App: React.FC = () => {
   const { appHeaderHeight } = useAppHeaderHeight();
@@ -75,6 +76,9 @@ const App: React.FC = () => {
                         <Route path={getRoute(RouteItem.WORK_BOOK_COPY)} element={<h1>Копия</h1>} />
 
                         <Route path={getRoute(RouteItem.PHONEBOOK)} element={<PhonebookPage />} />
+
+                        <Route path={getRoute(RouteItem.DOCUMENT)} element={<DocumentPage />} />
+
                         <Route path="*" element={<NotFoundPage />} />
                       </Routes>
                     </PageContent>

@@ -27,14 +27,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${colors.COLOR_BG_FILL_ALTER} !important;
   }
   
-  .ant-btn {
-    >.ant-btn-icon {
-      margin-inline-end: 0 !important;
-      transform: translateX(-8px);
-      transition: .2s all !important;
-    }
-  }
-  
   .ant-pagination-options {
     display: inline-block !important;
   }

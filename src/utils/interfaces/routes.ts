@@ -30,4 +30,6 @@ export enum RouteItem {
   WORK_BOOK_COPY = 'workBookCopy',
 
   PHONEBOOK = 'phonebook',
+
+  DOCUMENT = 'document'
 }

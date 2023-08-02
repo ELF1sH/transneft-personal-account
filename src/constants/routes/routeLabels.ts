@@ -32,4 +32,6 @@ export const routeItemsLabels: Record<RouteItem, string> = {
   [RouteItem.WORK_BOOK_COPY]: 'Заявление на выдачу заверенной копии трудовой книжки',
 
   [RouteItem.PHONEBOOK]: 'Телефонный справочник',
+
+  [RouteItem.DOCUMENT]: 'Ознакомление с документом',
 };

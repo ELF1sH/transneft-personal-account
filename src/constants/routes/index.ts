@@ -26,6 +26,8 @@ export const routePaths: Record<RouteItem, (RouteItem | RouteSection)[]> = {
   [RouteItem.WORK_BOOK_COPY]: [RouteItem.PROFILE, RouteSection.PAPERWORK],
 
   [RouteItem.PHONEBOOK]: [RouteItem.PROFILE],
+
+  [RouteItem.DOCUMENT]: [],
 };
 
 export const downloadLinks: Partial<Record<RouteItem, string>> = {

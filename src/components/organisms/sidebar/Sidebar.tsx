@@ -1,5 +1,3 @@
-import { DRAWER_MAX_WINDOW_WIDTH } from 'constants/layout';
-
 import React from 'react';
 import Sider from 'antd/es/layout/Sider';
 import { Menu } from 'antd';
@@ -9,6 +7,8 @@ import {
   useDrawerSidebarContext,
 } from 'components/organisms/sidebar/drawerSidebar/viewModel/context';
 import { items } from 'components/organisms/sidebar/items';
+
+import { DRAWER_MAX_WINDOW_WIDTH } from 'constants/layout';
 
 import { useAppHeaderHeight } from 'utils/hooks/layout/useAppHeaderHeight';
 import { useWindowWidth } from 'utils/hooks/layout/useWindowWidth';

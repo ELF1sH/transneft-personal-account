@@ -26,6 +26,7 @@
     "src"
   ],
   "files": [
-    "src/theme/styled.d.ts"
+    "src/theme/styled.d.ts",
+    "global.d.ts"
   ]
 }

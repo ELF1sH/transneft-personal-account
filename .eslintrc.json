@@ -76,6 +76,11 @@
             "position": "after"
           },
           {
+            "pattern": "constants/**",
+            "group": "index",
+            "position": "after"
+          },
+          {
             "pattern": "domain/**",
             "group": "index",
             "position": "after"
